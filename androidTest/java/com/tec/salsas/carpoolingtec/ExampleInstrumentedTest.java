@@ -1,4 +1,4 @@
-package com.example.kevin.carpoolingtec;
+package com.tec.salsas.carpoolingtec;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

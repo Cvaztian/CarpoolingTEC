@@ -1,4 +1,4 @@
-package com.example.kevin.carpoolingtec;
+package com.tec.salsas.carpoolingtec;
 
 import org.junit.Test;
 

@@ -1,13 +1,13 @@
-package com.example.kevin.carpoolingtec;
+package com.tec.salsas.carpoolingtec;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class friendPage extends AppCompatActivity {
+public class signUp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_friend_page);
+        setContentView(R.layout.activity_sign_up);
     }
 }
