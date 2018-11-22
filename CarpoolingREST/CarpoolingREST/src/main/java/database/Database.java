@@ -63,7 +63,6 @@ public class Database {
     	String specificDatabase = databaseFocus(type);
     	
         File f = new File(specificDatabase);
-        System.out.println(specificDatabase);
     	File[] matching= f.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return true;
@@ -73,11 +72,13 @@ public class Database {
     		return null;
     	}else{
     		for(File file:matching){
-    			return file;
+    			if(file.getName().equals(email)) {
+        			return file;
+    			}
     		}
+    		return null;
     	}
     	
-    	return null;
     	
     	
     }
@@ -89,6 +90,7 @@ public class Database {
      * @throws Exception si no existe la base de datos de type
      * */
     public static void WriteXML(String type, Object usuario) throws Exception {
+    	String specificDatabase = databaseFocus(type);
     	if(type.equals("student")){
 	        Student estudiante = (Student)usuario;
 	        
@@ -116,7 +118,7 @@ public class Database {
 	
 	        XMLOutputter outter=new XMLOutputter();
 	        outter.setFormat(Format.getPrettyFormat());
-	        outter.output(doc, new FileWriter(new File(databaseLocation+"/"+estudiante.getEmail())));
+	        outter.output(doc, new FileWriter(new File(specificDatabase+"/"+estudiante.getEmail())));
         }else if(type.equals("driver")) {
         	Driver driver = (Driver) usuario;
         }else {
