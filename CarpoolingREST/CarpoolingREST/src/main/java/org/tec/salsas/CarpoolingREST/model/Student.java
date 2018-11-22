@@ -1,20 +1,36 @@
 package org.tec.salsas.CarpoolingREST.model;
 
+
+/**
+ * Modelo del estudiante, el pasajero, el cliente, etc...
+ * @author Kevin Zeledon
+ * */
 public class Student {
 	
 	private int carne;
 	private String name;
 	private String email;
-	private long id;
+	private String imageUrl;
+	private int nodoResidencia;
 	
 	public Student() {
+		
 	}
 
-	public Student(int carne, String name, String email, long id) {
+	public Student(int carne, String name, String email, String imageUrl, int nodoResidencia) {
 		this.carne = carne;
 		this.name = name;
 		this.email = email;
-		this.id = id;
+		this.imageUrl = imageUrl;
+		this.nodoResidencia = nodoResidencia;
+	}
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public int getCarne() {
@@ -41,12 +57,12 @@ public class Student {
 		this.email = email;
 	}
 
-	public long getId() {
-		return id;
+	public int getNodoResidencia() {
+		return nodoResidencia;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setNodoResidencia(int nodoResidencia) {
+		this.nodoResidencia = nodoResidencia;
 	}
 	
 	
