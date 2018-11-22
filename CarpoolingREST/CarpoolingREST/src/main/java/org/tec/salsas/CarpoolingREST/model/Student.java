@@ -1,43 +1,39 @@
 package org.tec.salsas.CarpoolingREST.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Modelo del estudiante, el pasajero, el cliente, etc...
  * @author Kevin Zeledon
  * */
+@XmlRootElement
 public class Student {
 	
-	private int carne;
+	private String carne;
 	private String name;
 	private String email;
-	private String imageUrl;
-	private int nodoResidencia;
+	private String pass;
+	private String nodoResidencia;
 	
 	public Student() {
 		
 	}
+	
 
-	public Student(int carne, String name, String email, String imageUrl, int nodoResidencia) {
+	public Student(String carne, String name, String email, String nodoResidencia, String pass) {
+		// TODO Auto-generated constructor stub
 		this.carne = carne;
 		this.name = name;
 		this.email = email;
-		this.imageUrl = imageUrl;
 		this.nodoResidencia = nodoResidencia;
-	}
-	
-	public String getImageUrl() {
-		return imageUrl;
+		this.pass = pass;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public int getCarne() {
+	public String getCarne() {
 		return carne;
 	}
 
-	public void setCarne(int carne) {
+	public void setCarne(String carne) {
 		this.carne = carne;
 	}
 
@@ -49,6 +45,14 @@ public class Student {
 		this.name = name;
 	}
 
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -57,11 +61,11 @@ public class Student {
 		this.email = email;
 	}
 
-	public int getNodoResidencia() {
+	public String getNodoResidencia() {
 		return nodoResidencia;
 	}
 
-	public void setNodoResidencia(int nodoResidencia) {
+	public void setNodoResidencia(String nodoResidencia) {
 		this.nodoResidencia = nodoResidencia;
 	}
 	
