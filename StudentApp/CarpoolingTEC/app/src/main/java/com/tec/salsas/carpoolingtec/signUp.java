@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.tec.salsas.carpoolingtec.model.signupMap;
 
 
 public class signUp extends AppCompatActivity {
@@ -107,6 +108,10 @@ public class signUp extends AppCompatActivity {
         requestQueue.add(objectRequest);
     }
 
+    public void MapButton(View v){
+        Intent intent = new Intent(this, signupMap.class);
+        startActivity(intent);
+    }
     /**
      * Metodo que se ejecuta al oprimir el boton CameraButton y que inicializa el lector de codigo de barras
      * @param v pantalla donde se mostrara

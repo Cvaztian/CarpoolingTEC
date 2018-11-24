@@ -47,7 +47,6 @@ public class main extends AppCompatActivity
     AnimatorSet cadena;
     List<Animator> lista = new ArrayList<>();
     Boolean clickable;
-    String estado_conversion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,24 +220,14 @@ public class main extends AppCompatActivity
     public void seleccion(View v){
         ImageView a = (ImageView)findViewById(v.getId());
         if (clickable){
-            if(estado_conversion=="casa" && this.residencia == null){
+            if(this.residencia == null){
                 a.setImageResource(R.drawable.punterocasa);
-                this.clickable = false;
-            }else if(estado_conversion=="inicio"){
-                a.setImageResource(R.drawable.punteroinicio);
                 this.clickable = false;
             }
         }
     }
-    public void convertir_inicio(ImageView punto){
-        this.estado_conversion = "inicio";
-    }
 
-    public void convertir_casa(ImageView punto){
-        this.estado_conversion = "casa";
-    }
      public void button2(View v){
-        this.estado_conversion ="inicio";
         this.clickable= true;
         navegar(usuario,21);
         navegar(usuario,7);

@@ -81,9 +81,10 @@
             android:layout_marginLeft="16dp"/>
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/MapButton"
             android:layout_width="match_parent"
             android:layout_height="152dp"
+            android:onClick="MapButton"
             app:srcCompat="@drawable/ic_map" />
 
         <Button
