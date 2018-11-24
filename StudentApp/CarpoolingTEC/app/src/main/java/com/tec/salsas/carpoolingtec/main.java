@@ -124,6 +124,12 @@ public class main extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    /**
+     * Ejecuta la animacion de traslacion de un objeto hacia una ubicacion predefinida
+     * @param objeto imagen por trasladar
+     * @param llegada identificacion de la ubicacion predefinida
+     */
     public void navegar(ImageView objeto, int llegada){
         ImageView destino;
         destino = dictionary.get(llegada);

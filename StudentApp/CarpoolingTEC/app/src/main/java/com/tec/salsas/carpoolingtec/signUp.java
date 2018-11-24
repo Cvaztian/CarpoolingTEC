@@ -16,6 +16,11 @@ public class signUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
     }
+
+    /**
+     * Metodo que se ejecuta al oprimir el boton CameraButton y que inicializa el lector de codigo de barras
+     * @param v pantalla donde se mostrara
+     */
     public void CameraButton(View v){
             IntentIntegrator intent = new IntentIntegrator(this);
             intent.setDesiredBarcodeFormats(IntentIntegrator.PRODUCT_CODE_TYPES);
@@ -26,7 +31,12 @@ public class signUp extends AppCompatActivity {
             intent.initiateScan();
         }
 
-
+    /**
+     * Muestra el resultado de la lectura del codigo de barras
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
