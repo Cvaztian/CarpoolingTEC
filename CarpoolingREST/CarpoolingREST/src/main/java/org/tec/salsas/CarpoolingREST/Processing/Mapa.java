@@ -1,3 +1,5 @@
+package org.tec.salsas.CarpoolingREST.Processing;
+
 import org.graphstream.graph.*;
 import org.graphstream.algorithm.generator.*;
 import java.util.Random;
