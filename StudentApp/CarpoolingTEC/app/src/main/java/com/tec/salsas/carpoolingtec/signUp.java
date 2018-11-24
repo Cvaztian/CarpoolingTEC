@@ -30,13 +30,12 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.tec.salsas.carpoolingtec.model.signupMap;
 
 
 public class signUp extends AppCompatActivity {
-    private Student newStudent;
+    public static Student newStudent;
     private EditText pass;
-    private String nodoResidencia = "1";
-    private String carnet = "2018";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,9 @@ public class signUp extends AppCompatActivity {
         Intent intent = getIntent();
 
         try {
-            newStudent = mapper.readValue(intent.getStringExtra("data"), Student.class);
+            if(newStudent == null) {
+                newStudent = mapper.readValue(intent.getStringExtra("data"), Student.class);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,8 +61,6 @@ public class signUp extends AppCompatActivity {
 
         final ObjectMapper mapper = new ObjectMapper();
         String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/signup/student";
-        newStudent.setCarne(carnet);
-        newStudent.setNodoResidencia(nodoResidencia);
         if(pass.getText().toString().isEmpty()){
             //Toast
             String text = "Ingrese una contrasenna";
@@ -89,6 +88,8 @@ public class signUp extends AppCompatActivity {
                             if(result.get("result").equals("true")){
                                 Intent intent = new Intent(c, main.class);
 
+                                System.out.println(newStudent.getCarne());
+
                                 intent.putExtra("user", newStudent.toString());
 
                                 startActivity(intent);
@@ -107,13 +108,18 @@ public class signUp extends AppCompatActivity {
         requestQueue.add(objectRequest);
     }
 
+    public void MapButton(View v){
+        System.out.println(newStudent.getNodoResidencia());
+        Intent intent = new Intent(this, signupMap.class);
+        startActivity(intent);
+    }
     /**
      * Metodo que se ejecuta al oprimir el boton CameraButton y que inicializa el lector de codigo de barras
      * @param v pantalla donde se mostrara
      */
     public void CameraButton(View v){
             IntentIntegrator intent = new IntentIntegrator(this);
-            intent.setDesiredBarcodeFormats(IntentIntegrator.PRODUCT_CODE_TYPES);
+            intent.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
             intent.setPrompt("Coloque su carnet dentro del rectángulo");
             intent.setCameraId(0);
             intent.setBeepEnabled(true);
@@ -136,6 +142,8 @@ public class signUp extends AppCompatActivity {
             }
             else{
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
+                newStudent.setCarne(result.getContents());
+                System.out.println("hey");
             }
         }
         else

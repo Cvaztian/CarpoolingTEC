@@ -32,6 +32,10 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
         <activity android:name="com.tec.salsas.carpoolingtec.friendPage"></activity>
+        <activity
+            android:name="com.tec.salsas.carpoolingtec.model.signupMap"
+            android:label="signupMap"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

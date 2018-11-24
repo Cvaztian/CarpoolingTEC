@@ -109,6 +109,7 @@ public class Database {
 	        Element child3 = new Element("PASS");
 	        child3.addContent(estudiante.getPass());
 	        Element child4 = new Element("ID");
+	        System.out.println(estudiante.getCarne());
 	        child4.addContent(estudiante.getCarne());
 	        Element child5 = new Element("HOME");
 	        child5.addContent(estudiante.getNodoResidencia());

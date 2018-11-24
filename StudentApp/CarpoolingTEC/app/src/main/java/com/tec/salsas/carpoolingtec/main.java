@@ -56,12 +56,17 @@ import static android.view.View.TRANSLATION_Y;
 
 public class main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     Student precurrent;
     final StudentRun current = new StudentRun();
-    ImageView punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11 , punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
+
+    Student current;
+    ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11 , punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
+
     Map<Integer, ImageView> dictionary;
     AnimatorSet cadena;
     List<Animator> lista = new ArrayList<>();
+    Boolean clickable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -327,7 +332,18 @@ public class main extends AppCompatActivity
         return true;
     }
 
+    public void seleccion(View v){
+        ImageView a = (ImageView)findViewById(v.getId());
+        if (clickable){
+            if(this.residencia == null){
+                a.setImageResource(R.drawable.punterocasa);
+                this.clickable = false;
+            }
+        }
+    }
+
      public void button2(View v){
+        this.clickable= true;
         navegar(usuario,21);
         navegar(usuario,7);
          navegar(usuario,17);
