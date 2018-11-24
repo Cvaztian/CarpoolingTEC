@@ -42,10 +42,12 @@ import static android.view.View.TRANSLATION_Y;
 public class main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Student current;
-    ImageView punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11 , punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
+    ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11 , punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
     Map<Integer, ImageView> dictionary;
     AnimatorSet cadena;
     List<Animator> lista = new ArrayList<>();
+    Boolean clickable;
+    String estado_conversion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,6 +218,25 @@ public class main extends AppCompatActivity
         return true;
     }
 
+    public void seleccion(View v){
+        ImageView a = (ImageView)findViewById(v.getId());
+        if (clickable){
+            if(estado_conversion=="casa" && this.residencia == null){
+                a.setImageResource(R.drawable.punterocasa);
+                this.clickable = false;
+            }else if(estado_conversion=="inicio"){
+                a.setImageResource(R.drawable.punteroinicio);
+                this.clickable = false;
+            }
+        }
+    }
+    public void convertir_inicio(ImageView punto){
+        this.estado_conversion = "inicio";
+    }
+
+    public void convertir_casa(ImageView punto){
+        this.estado_conversion = "casa";
+    }
      public void button2(View v){
         navegar(usuario,21);
         navegar(usuario,7);
