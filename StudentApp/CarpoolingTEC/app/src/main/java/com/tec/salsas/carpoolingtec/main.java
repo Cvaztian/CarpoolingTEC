@@ -238,6 +238,8 @@ public class main extends AppCompatActivity
         this.estado_conversion = "casa";
     }
      public void button2(View v){
+        this.estado_conversion ="inicio";
+        this.clickable= true;
         navegar(usuario,21);
         navegar(usuario,7);
          navegar(usuario,17);
