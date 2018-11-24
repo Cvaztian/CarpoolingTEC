@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,14 +23,28 @@ import android.view.MenuItem;
 
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tec.salsas.carpoolingtec.model.DriverRun;
 import com.tec.salsas.carpoolingtec.model.Student;
+import com.tec.salsas.carpoolingtec.model.StudentRun;
 
 import java.io.IOException;
 
 import android.widget.ImageView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,8 +56,13 @@ import static android.view.View.TRANSLATION_Y;
 
 public class main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Student precurrent;
+    final StudentRun current = new StudentRun();
+
     Student current;
     ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11 , punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
+
     Map<Integer, ImageView> dictionary;
     AnimatorSet cadena;
     List<Animator> lista = new ArrayList<>();
@@ -54,12 +74,12 @@ public class main extends AppCompatActivity
 
         ObjectMapper mapper = new ObjectMapper();
 
-
-
         Intent intent = getIntent();
         String message = intent.getStringExtra("user");
         try {
-            current = mapper.readValue(message, Student.class);
+            precurrent = mapper.readValue(message, Student.class);
+            current.setStudent(precurrent);
+            current.setMyDriver(null);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,13 +159,108 @@ public class main extends AppCompatActivity
         dictionary.put(28,punto28);
         dictionary.put(29,punto29);
         dictionary.put(30,punto30);
+        final Context c= this;
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+                String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student";
+                RequestQueue requestQueue = Volley.newRequestQueue(c);
+                final ObjectMapper mapper = new ObjectMapper();
+
+                JsonObjectRequest objectRequest = null;
+                System.out.println(current.getName());
+                try {
+                    objectRequest = new JsonObjectRequest(
+                            Request.Method.PUT,
+                            url,
+                            new JSONObject(mapper.writeValueAsString(current)),
+                            new Response.Listener<JSONObject>() {
+
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    System.out.println(response);
+                                    try {
+                                        HashMap<String,String> result = mapper.readValue(response.toString(), HashMap.class);
+                                        if(result.get("result").toString().equals("encolado")){
+                                            fab.setEnabled(false);
+                                            Thread thread = new Thread(){
+                                                @Override
+                                                public void run(){
+                                                    final LinkedList<Boolean> repeat = new LinkedList<>();
+                                                    repeat.add(true);
+                                                    while(repeat.getFirst()) {
+                                                        String url1 = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student";
+                                                        RequestQueue requestQueue = Volley.newRequestQueue(c);
+                                                        final ObjectMapper mapper = new ObjectMapper();
+
+                                                        JsonObjectRequest objectRequest = null;
+                                                        System.out.println(current.getName());
+                                                        try {
+                                                            objectRequest = new JsonObjectRequest(
+                                                                    Request.Method.POST,
+                                                                    url1,
+                                                                    new JSONObject(mapper.writeValueAsString(current)),
+                                                                    new Response.Listener<JSONObject>() {
+
+                                                                        @Override
+                                                                        public void onResponse(JSONObject response) {
+                                                                            try {
+                                                                                HashMap<String, String> result = (HashMap<String, String>) mapper.readValue(response.toString(), HashMap.class);
+                                                                                System.out.println(result.toString());
+                                                                                if(!result.get("carne").equals("none")){
+                                                                                    current.setMyDriver(result.get("mail"));
+                                                                                    repeat.removeFirst();
+                                                                                    repeat.add(false);
+                                                                                }
+                                                                            } catch (IOException e) {
+                                                                                e.printStackTrace();
+                                                                            }
+                                                                        }
+                                                                    }, new Response.ErrorListener() {
+                                                                @Override
+                                                                public void onErrorResponse(VolleyError error) {
+                                                                    System.out.println(error.toString());
+                                                                }
+                                                            }
+                                                            );
+                                                        } catch (JSONException e) {
+                                                            e.printStackTrace();
+                                                        } catch (IOException e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                        requestQueue.add(objectRequest);
+                                                        try {
+                                                            Thread.sleep(500);
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                    }
+                                                }
+                                            };
+                                            thread.start();
+                                        }
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener(){
+                        @Override
+                        public void onErrorResponse(VolleyError error){
+                            System.out.println(error.toString());
+                        }
+                    }
+                    );
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                requestQueue.add(objectRequest);
             }
         });
 

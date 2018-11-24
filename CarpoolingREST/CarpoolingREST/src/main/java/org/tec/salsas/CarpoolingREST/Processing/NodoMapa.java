@@ -1,3 +1,5 @@
+package org.tec.salsas.CarpoolingREST.Processing;
+
 /**
  * @class NodoMapa
  * Nodo utilizado para la graficacion y comunicacion cliente-servidor

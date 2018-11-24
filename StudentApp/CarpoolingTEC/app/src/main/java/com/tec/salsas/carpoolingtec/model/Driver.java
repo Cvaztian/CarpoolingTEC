@@ -1,4 +1,5 @@
-package org.tec.salsas.CarpoolingREST.model;
+package com.tec.salsas.carpoolingtec.model;
+
 
 /**
  * Modelo del conductor
