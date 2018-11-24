@@ -207,7 +207,7 @@ public class main extends AppCompatActivity
                                                                                 HashMap<String, String> result = mapper.readValue(response.toString(), HashMap.class);
                                                                                 System.out.println(result.toString());
                                                                                 if(!result.get("carne").equals("none")){
-                                                                                    //current.setMyDriver(new DriverRun(result.get("carne"),result.get("name"), result.get("email"), result.get("pass"), result.get("nodoResidencia"),result.get("ruta").toString()));
+                                                                                    current.setMyDriver(new DriverRun(result.get("carne"),result.get("name"), result.get("email"), result.get("pass"), result.get("nodoResidencia"),mapper.readValue(result.get("pasajeros"), LinkedList.class), mapper.readValue(result.get("ruta"), LinkedList.class)));
                                                                                     repeat.removeFirst();
                                                                                     repeat.add(false);
                                                                                 }

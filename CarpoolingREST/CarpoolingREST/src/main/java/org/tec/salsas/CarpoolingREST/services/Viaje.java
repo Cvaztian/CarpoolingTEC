@@ -49,8 +49,8 @@ public class Viaje {
 		pruebaR.add("0");
 		pruebaR.add("2");
 		pruebaR.add("1");
-		//DriverRun pruebaD = new DriverRun("2018","eu","ala","je","0",new LinkedList<Student>(),pruebaR);
-		//colaDriverViajes.add(pruebaD);
+		DriverRun pruebaD = new DriverRun("2018","eu","ala","je","0",new LinkedList<Student>(),pruebaR);
+		colaDriverViajes.add(pruebaD);
 		for(DriverRun driver:colaDriverViajes){
 			for(String ubicacion:driver.getRuta()){
 				System.out.println((ubicacion));
