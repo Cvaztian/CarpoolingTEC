@@ -63,7 +63,6 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:onClick="editText2"
                 android:paddingLeft="8dp"
                 android:paddingTop="8dp"
                 android:paddingRight="8dp"
