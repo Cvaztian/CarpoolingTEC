@@ -59,8 +59,6 @@ public class main extends AppCompatActivity
 
     Student precurrent;
     final StudentRun current = new StudentRun();
-
-    Student current;
     ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11 , punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
 
     Map<Integer, ImageView> dictionary;
