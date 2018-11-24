@@ -3,30 +3,28 @@ package com.tec.salsas.carpoolingtec;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import org.json.JSONObject;
 
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
     private CallbackManager callbackManager;
-
-    @Override
+    EditText m1, m2;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
+        EditText m1 = (EditText) findViewById(R.id.editText);
+        EditText m2= (EditText) findViewById(R.id.editText2);
         callbackManager = CallbackManager.Factory.create();
 
         LoginButton loginButton = (LoginButton)findViewById(R.id.logFB);
@@ -41,24 +39,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(LoginResult loginResult) {
                         // App code
                         System.out.println("yay");
-
-
-                        GraphRequest request = GraphRequest.newMeRequest( loginResult.getAccessToken()
-                                ,
-                                new GraphRequest.GraphJSONObjectCallback() {
-                                    @Override
-                                    public void onCompleted(JSONObject object, GraphResponse response) {
-                                        // Insert your code here
-                                        System.out.println(response);
-                                        System.out.println(object);
-
-                                    }
-                                });
-
-                        Bundle parameters = new Bundle();
-                        parameters.putString("fields", "id,name,email,picture");
-                        request.setParameters(parameters);
-                        request.executeAsync();
                     }
 
                     @Override
@@ -72,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         // App code
                         System.out.println(exception);
                     }
+
                 });
 
 
