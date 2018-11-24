@@ -2,18 +2,18 @@ package com.tec.salsas.carpoolingtec.model;
 
 public class StudentRun extends Student {
 
-    private DriverRun myDriver;
+    private String myDriver;
 
     public StudentRun(){
 
     }
 
-    public StudentRun(String carne, String name, String email, String nodoResidencia, String pass, DriverRun myDriver) {
+    public StudentRun(String carne, String name, String email, String nodoResidencia, String pass, String myDriver) {
         super(carne, name, email, nodoResidencia, pass);
         this.myDriver = myDriver;
     }
 
-    public StudentRun(Student student, DriverRun myDriver){
+    public StudentRun(Student student, String myDriver){
         super(student.getCarne(), student.getName(), student.getEmail(), student.getNodoResidencia(), student.getPass());
         this.myDriver = myDriver;
     }
@@ -26,11 +26,11 @@ public class StudentRun extends Student {
         setPass(student.getPass());
     }
 
-    public DriverRun getMyDriver() {
+    public String getMyDriver() {
         return myDriver;
     }
 
-    public void setMyDriver(DriverRun myDriver) {
+    public void setMyDriver(String myDriver) {
         this.myDriver = myDriver;
     }
 }

@@ -205,10 +205,10 @@ public class main extends AppCompatActivity
                                                                         @Override
                                                                         public void onResponse(JSONObject response) {
                                                                             try {
-                                                                                HashMap<String, String> result = mapper.readValue(response.toString(), HashMap.class);
+                                                                                HashMap<String, String> result = (HashMap<String, String>) mapper.readValue(response.toString(), HashMap.class);
                                                                                 System.out.println(result.toString());
                                                                                 if(!result.get("carne").equals("none")){
-                                                                      //              current.setMyDriver(new DriverRun(result.get("carne"),result.get("name"), result.get("email"), result.get("pass"), result.get("nodoResidencia"), (JSONArray)result.get("pasajeros"), (JSONArray)result.get("ruta")));
+                                                                                    current.setMyDriver(result.get("mail"));
                                                                                     repeat.removeFirst();
                                                                                     repeat.add(false);
                                                                                 }

@@ -7,7 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.ArrayList;
 
 /**
  * Esta clase posee atributos especiales para una corrida de la app que no deben ser guardados en la base de datos
@@ -15,10 +16,10 @@ import java.util.LinkedList;
  * */
 public class DriverRun extends Driver {
 
-    private LinkedList<Student> pasajeros;
-    private LinkedList<String> ruta;
+    private ArrayList<Student> pasajeros;
+    private ArrayList<String> ruta;
 
-    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, LinkedList<Student> pasajeros, LinkedList<String> ruta) {
+    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, ArrayList<Student> pasajeros, ArrayList<String> ruta) {
         super(carne, name, email, pass, nodoResidencia);
         this.pasajeros = pasajeros;
         this.ruta = ruta;
@@ -26,45 +27,26 @@ public class DriverRun extends Driver {
 
     public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, String pasajeros, String ruta) {
         super(carne, name, email, pass, nodoResidencia);
-        this.pasajeros = null;
-        this.ruta = null;
-    }
-
-    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, JSONArray pasajeros, JSONArray ruta) throws JSONException, IOException {
-        super(carne, name, email, pass, nodoResidencia);
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        if(pasajeros!=null){
-            for(int i=0;i<pasajeros.length();i++){
-                this.pasajeros.add(mapper.readValue(pasajeros.getString(i), Student.class));
-            }
-        }else{
-            this.pasajeros = null;
-        }
-
-        if(ruta !=null){
-            for(int i=0;i<ruta.length();i++){
-                this.ruta.add(ruta.getString(i));
-            }
-        }
-
+        System.out.println(pasajeros);
+        System.out.println(ruta);
     }
 
 
-    public LinkedList<Student> getPasajeros() {
+
+
+    public ArrayList<Student> getPasajeros() {
         return pasajeros;
     }
 
-    public void setPasajeros(LinkedList<Student> pasajeros) {
+    public void setPasajeros(ArrayList<Student> pasajeros) {
         this.pasajeros = pasajeros;
     }
 
-    public LinkedList<String> getRuta() {
+    public ArrayList<String> getRuta() {
         return ruta;
     }
 
-    public void setRuta(LinkedList<String> ruta) {
+    public void setRuta(ArrayList<String> ruta) {
         this.ruta = ruta;
     }
 }
