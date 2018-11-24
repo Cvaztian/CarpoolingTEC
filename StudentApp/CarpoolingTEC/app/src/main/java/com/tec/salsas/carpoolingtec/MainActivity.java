@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,6 +38,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -83,12 +86,15 @@ public class MainActivity extends AppCompatActivity {
 
     private final Context c = this;
 
+    EditText m1, m2;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login_page);
-
+       // EditText m1 = (EditText) findViewById(R.id.editText);
+        //EditText m2= (EditText) findViewById(R.id.editText2);
         callbackManager = CallbackManager.Factory.create();
 
         LoginButton loginButton = (LoginButton)findViewById(R.id.logFB);
@@ -196,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                         request.executeAsync();
 
 
+
                     }
 
                     @Override
@@ -209,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                         // App code
                         System.out.println(exception);
                     }
+
                 });
 
 
