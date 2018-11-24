@@ -2,6 +2,8 @@ package org.tec.salsas.CarpoolingREST.services;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,13 +26,15 @@ public class signUp {
 	@Path("/student")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean isRegistered(ArrayList<String> dataList) throws Exception {
-		File prueba = Database.findFile("student", dataList.get(0));
+	public HashMap<String,String> isRegistered(HashMap<String,String> dataList) throws Exception {
+		File prueba = Database.findFile("student", dataList.get("mail"));
+		HashMap<String,String> result = new HashMap<>();
 		if(prueba==null) {
-			return true; 
+			result.put("result", "true");
 		}else {
-			return false;
+			result.put("result","false");
 		}
+		return result;
 	}
 	
 	/**
@@ -41,8 +45,11 @@ public class signUp {
 	@Path("/student")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void register(Student newStudent) throws Exception {
+	public HashMap<String,String> register(Student newStudent) throws Exception {
 		Database.WriteXML("student", newStudent);
+		HashMap<String,String> result = new HashMap<>();
+		result.put("result","true");
+		return result;
 	}
 	
 }

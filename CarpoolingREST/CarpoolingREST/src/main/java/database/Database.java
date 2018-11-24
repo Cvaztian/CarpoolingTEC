@@ -24,6 +24,11 @@ public class Database {
 		
 		if(type == "student") {
 			File userFile = findFile(type, email);
+			if(userFile == null) {
+				System.out.println(email);
+				System.out.println(userFile);
+				return new Student("none","","","","");
+			}
 			return (Student)ReadXML(type, userFile);
 		}else if(type == "driver") {
 			Driver result;
@@ -61,18 +66,18 @@ public class Database {
      * */
     public static File findFile(String type, String email) throws Exception{
     	String specificDatabase = databaseFocus(type);
-    	
         File f = new File(specificDatabase);
     	File[] matching= f.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return true;
             }});
     	
-    	if(matching == null || matching.length==0){
+    	if(matching == null){
     		return null;
     	}else{
     		for(File file:matching){
     			if(file.getName().equals(email)) {
+    				System.out.println(file.getName());
         			return file;
     			}
     		}

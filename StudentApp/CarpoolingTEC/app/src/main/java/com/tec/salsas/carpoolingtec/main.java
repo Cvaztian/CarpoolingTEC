@@ -1,6 +1,9 @@
 package com.tec.salsas.carpoolingtec;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,14 +15,51 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tec.salsas.carpoolingtec.model.Student;
+
+import org.w3c.dom.Text;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    Student current;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+
+
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("user");
+        try {
+            current = mapper.readValue(message, Student.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         setContentView(R.layout.activity_main);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
+        TextView nameT = (TextView) header.findViewById(R.id.nameTextView);
+        TextView emailT = (TextView) header.findViewById(R.id.mailTextView);
+
+        nameT.setText(current.getName());
+        emailT.setText(current.getEmail());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -39,7 +79,7 @@ public class main extends AppCompatActivity
         drawer.addDrawerListener(toggle);
 
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -75,5 +115,9 @@ public class main extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
 
 }
