@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tec.salsas.carpoolingtec.R;
 import com.tec.salsas.carpoolingtec.friendPage;
+import com.tec.salsas.carpoolingtec.signUp;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,19 +35,12 @@ public class signupMap extends AppCompatActivity {
         Student current;
         ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11, punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
         Boolean clickable;
+        HashMap dictionary;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_sign_up_map);
-            NavigationView navigationView = findViewById(R.id.nav_view);
-            View header = navigationView.getHeaderView(0);
-            TextView nameT = header.findViewById(R.id.nameTextView);
-            TextView emailT = header.findViewById(R.id.mailTextView);
-
-            nameT.setText(current.getName());
-            emailT.setText(current.getEmail());
-
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             punto1 = findViewById(R.id.punto1);
@@ -81,39 +75,54 @@ public class signupMap extends AppCompatActivity {
             punto30 = findViewById(R.id.punto30);
             usuario = findViewById(R.id.usuario);
 
-            FloatingActionButton fab = findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
-            });
+            dictionary = new HashMap<Integer, ImageView>();
+            dictionary.put(1,punto1);
+            dictionary.put(2,punto2);
+            dictionary.put(3,punto3);
+            dictionary.put(4,punto4);
+            dictionary.put(5,punto5);
+            dictionary.put(6,punto6);
+            dictionary.put(7,punto7);
+            dictionary.put(8,punto8);
+            dictionary.put(9,punto9);
+            dictionary.put(10,punto10);
+            dictionary.put(11,punto11);
+            dictionary.put(12,punto12);
+            dictionary.put(13,punto13);
+            dictionary.put(14,punto14);
+            dictionary.put(15,punto15);
+            dictionary.put(16,punto16);
+            dictionary.put(17,punto17);
+            dictionary.put(18,punto18);
+            dictionary.put(19,punto19);
+            dictionary.put(20,punto20);
+            dictionary.put(21,punto21);
+            dictionary.put(22,punto22);
+            dictionary.put(23,punto23);
+            dictionary.put(24,punto24);
+            dictionary.put(25,punto25);
+            dictionary.put(26,punto26);
+            dictionary.put(27,punto27);
+            dictionary.put(28,punto28);
+            dictionary.put(29,punto29);
+            dictionary.put(30,punto30);
 
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-            drawer.addDrawerListener(toggle);
-
-            toggle.syncState();
+            this.clickable=true;
         }
 
-        @Override
-        public void onBackPressed() {
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            if (drawer.isDrawerOpen(GravityCompat.START)) {
-                drawer.closeDrawer(GravityCompat.START);
-            } else {
-                super.onBackPressed();
-            }
-        }
 
         public void seleccion(View v) {
             ImageView a = findViewById(v.getId());
             if (clickable) {
                 if (this.residencia == null) {
                     a.setImageResource(R.drawable.punterocasa);
+
+                    for(int i=1;i<=30;i++){
+                        if(dictionary.get(i) == a){
+                            signUp.newStudent.setNodoResidencia(Integer.toString(i));
+                        }
+                    }
+
                     this.residencia = a;
                     this.clickable = false;
                 }
