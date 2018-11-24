@@ -1,12 +1,394 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/marco"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/map"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".main"
-    tools:showIn="@layout/app_bar_main"
-    android:background="@drawable/new_login_gradients">
+    tools:showIn="@layout/app_bar_main">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/punto1"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="186dp"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="71dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto2"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="41dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto3"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
+        android:layout_marginTop="162dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto4"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="204dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto5"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="240dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto6"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="203dp"
+        android:layout_marginLeft="203dp"
+        android:layout_marginTop="343dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto7"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginLeft="126dp"
+        android:layout_marginTop="358dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto8"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="317dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto9"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="101dp"
+        android:layout_marginLeft="101dp"
+        android:layout_marginTop="276dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto10"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="140dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto11"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="197dp"
+        android:layout_marginLeft="197dp"
+        android:layout_marginTop="294dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto12"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="242dp"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="187dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto13"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="244dp"
+        android:layout_marginLeft="244dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto14"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="234dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto15"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="348dp"
+        android:layout_marginLeft="348dp"
+        android:layout_marginTop="66dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto16"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="341dp"
+        android:layout_marginLeft="341dp"
+        android:layout_marginTop="183dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto17"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="245dp"
+        android:layout_marginLeft="245dp"
+        android:layout_marginTop="36dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto18"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="177dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto19"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="406dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto20"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="207dp"
+        android:layout_marginLeft="207dp"
+        android:layout_marginTop="443dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto21"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="93dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto22"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="357dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto23"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="289dp"
+        android:layout_marginLeft="289dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto24"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="264dp"
+        android:layout_marginLeft="264dp"
+        android:layout_marginTop="122dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto25"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="195dp"
+        android:layout_marginLeft="195dp"
+        android:layout_marginTop="163dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto26"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="355dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto27"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginLeft="134dp"
+        android:layout_marginTop="8dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto28"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="4dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto29"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="288dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <ImageView
+        android:id="@+id/punto30"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="313dp"
+        android:layout_marginLeft="313dp"
+        android:layout_marginTop="273dp"
+        app:srcCompat="@drawable/puntero" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/punto26"
+        android:layout_marginEnd="-264dp"
+        android:layout_toStartOf="@+id/punto24"
+        android:onClick="button2"
+        android:text="Button" />
+
+    <ImageView
+        android:id="@+id/usuario"
+        android:layout_width="31dp"
+        android:layout_height="34dp"
+        android:layout_alignEnd="@+id/punto16"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="-7dp"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        tools:srcCompat="@android:drawable/ic_btn_speak_now" />
+
+</RelativeLayout>
