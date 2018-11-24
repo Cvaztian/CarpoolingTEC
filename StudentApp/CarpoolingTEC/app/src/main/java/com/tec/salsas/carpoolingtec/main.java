@@ -38,6 +38,7 @@ import java.io.IOException;
 
 import android.widget.ImageView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -207,7 +208,7 @@ public class main extends AppCompatActivity
                                                                                 HashMap<String, String> result = mapper.readValue(response.toString(), HashMap.class);
                                                                                 System.out.println(result.toString());
                                                                                 if(!result.get("carne").equals("none")){
-                                                                                    current.setMyDriver(new DriverRun(result.get("carne"),result.get("name"), result.get("email"), result.get("pass"), result.get("nodoResidencia"),mapper.readValue(result.get("pasajeros"), LinkedList.class), mapper.readValue(result.get("ruta"), LinkedList.class)));
+                                                                      //              current.setMyDriver(new DriverRun(result.get("carne"),result.get("name"), result.get("email"), result.get("pass"), result.get("nodoResidencia"), (JSONArray)result.get("pasajeros"), (JSONArray)result.get("ruta")));
                                                                                     repeat.removeFirst();
                                                                                     repeat.add(false);
                                                                                 }

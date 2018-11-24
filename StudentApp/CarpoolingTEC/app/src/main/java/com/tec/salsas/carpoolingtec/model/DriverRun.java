@@ -24,6 +24,12 @@ public class DriverRun extends Driver {
         this.ruta = ruta;
     }
 
+    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, String pasajeros, String ruta) {
+        super(carne, name, email, pass, nodoResidencia);
+        this.pasajeros = null;
+        this.ruta = null;
+    }
+
     public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, JSONArray pasajeros, JSONArray ruta) throws JSONException, IOException {
         super(carne, name, email, pass, nodoResidencia);
 
