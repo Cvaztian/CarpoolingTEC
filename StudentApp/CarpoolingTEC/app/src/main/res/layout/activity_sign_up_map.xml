@@ -19,6 +19,7 @@
         android:layout_marginStart="171dp"
         android:layout_marginLeft="171dp"
         android:layout_marginTop="216dp"
+        android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
     <ImageView
@@ -28,9 +29,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="269dp"
+        android:layout_marginLeft="269dp"
+        android:layout_marginTop="431dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -93,9 +94,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="126dp"
-        android:layout_marginLeft="126dp"
-        android:layout_marginTop="358dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginTop="410dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -197,9 +198,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="348dp"
-        android:layout_marginLeft="348dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="61dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -210,9 +211,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="341dp"
-        android:layout_marginLeft="341dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="194dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -223,9 +224,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="245dp"
-        android:layout_marginLeft="245dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginLeft="209dp"
+        android:layout_marginTop="80dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -288,9 +289,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="104dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginTop="357dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="362dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -353,9 +354,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginLeft="134dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginTop="99dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -366,9 +367,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="441dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
@@ -397,30 +398,5 @@
         android:layout_marginTop="273dp"
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/punto26"
-        android:layout_marginEnd="-264dp"
-        android:layout_marginRight="-264dp"
-        android:layout_toStartOf="@+id/punto24"
-        android:layout_toLeftOf="@+id/punto24"
-        android:onClick="button2"
-        android:text="Button" />
-
-    <ImageView
-        android:id="@+id/usuario"
-        android:layout_width="31dp"
-        android:layout_height="34dp"
-        android:layout_alignEnd="@+id/punto16"
-        android:layout_alignRight="@+id/punto16"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="-7dp"
-        app:srcCompat="@android:drawable/ic_btn_speak_now"
-        tools:srcCompat="@android:drawable/ic_btn_speak_now" />
 
 </RelativeLayout>
