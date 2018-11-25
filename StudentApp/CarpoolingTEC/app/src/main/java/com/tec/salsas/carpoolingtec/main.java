@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +37,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tec.salsas.carpoolingtec.model.DrawView;
 import com.tec.salsas.carpoolingtec.model.DriverRun;
 import com.tec.salsas.carpoolingtec.model.NodoMapa;
 import com.tec.salsas.carpoolingtec.model.Student;
@@ -495,12 +499,24 @@ public class main extends AppCompatActivity
          }
 
              ruta.removeFirst();
+         Toast estado;
+         Long inicio;
+
+
              for(NodoMapa nodo:ruta){
-                 Toast.makeText(this, "El tiempo de llegada a su destino es de: "+this.ETA+" segundos", nodo.getTiempo());
+                 Canvas canvas = new Canvas();
+                 DrawView drawing = new DrawView(this);
+                 estado = Toast.makeText(this, "El tiempo de llegada a su destino es de: "+this.ETA+" segundos", nodo.getTiempo());
+                 estado.show();
                  System.out.println(nodo.getiD());
+                 drawing.onDraw(canvas,carro.getX(),carro.getY(),dictionary.get(nodo.getiD()).getX(),dictionary.get(nodo.getiD()).getY());
+                 setContentView(drawing);
                  navegar(carro, nodo.getiD(), nodo.getTiempo());
                  cadena.playSequentially(lista);
                  cadena.start();
+                 inicio = System.currentTimeMillis();
+                 while((int)(System.currentTimeMillis()-inicio)!=nodo.getTiempo()*1500){
+                 }
                  this.ETA -= nodo.getTiempo();
                  result.add(true);
                  verify();

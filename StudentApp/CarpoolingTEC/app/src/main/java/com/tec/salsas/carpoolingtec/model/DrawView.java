@@ -11,8 +11,8 @@ public class DrawView extends View {
     Paint paint = new Paint();
 
     private void init() {
-        paint.setColor(Color.BLACK);
-        paint.setStrokeWidth(5f);
+        paint.setColor(Color.RED);
+        paint.setStrokeWidth(3f);
     }
 
     public DrawView(Context context) {
@@ -30,10 +30,8 @@ public class DrawView extends View {
         init();
     }
 
-    @Override
-    public void onDraw(Canvas canvas) {
-        canvas.drawLine(0, 0, 500, 700, paint);
-        canvas.drawLine(20, 0, 500, 500, paint);
+    public void onDraw(Canvas canvas, float a, float b, float c, float d) {
+        canvas.drawLine(a, b, c, d, paint);
     }
 
 }
