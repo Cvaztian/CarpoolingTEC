@@ -3381,7 +3381,6 @@
         <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
       </map>
     </option>
->>>>>>> 6c22b27662d1402a2ac71ab1090d81a2ed9eceb6
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -3397,20 +3396,19 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-
     <option name="x" value="214" />
     <option name="y" value="27" />
     <option name="width" value="1513" />
     <option name="height" value="661" />
+
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3629,7 +3627,7 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-=======
+
       <window_info anchor="bottom" id="Android Profiler" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info id="Image Layers" />
@@ -3675,7 +3673,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_adventure.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_adventure.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tec/salsas/driverapp/AdventureActivity.java" />
-=======
+
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tec/salsas/driverapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -3760,6 +3758,5 @@
         </state>
       </provider>
     </entry>
->>>>>>> 6c22b27662d1402a2ac71ab1090d81a2ed9eceb6
   </component>
 </project>
