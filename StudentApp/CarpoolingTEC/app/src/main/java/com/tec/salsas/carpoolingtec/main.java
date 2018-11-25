@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -493,6 +494,7 @@ public class main extends AppCompatActivity
      }
 
 
+     @SuppressLint("WrongCall")
      public void viaje() throws InterruptedException {
          for(NodoMapa nodo:ruta){
              this.ETA += nodo.getTiempo();
