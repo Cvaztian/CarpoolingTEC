@@ -30,14 +30,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tec.salsas.carpoolingtec.model.DriverRun;
+import com.tec.salsas.carpoolingtec.model.NodoMapa;
 import com.tec.salsas.carpoolingtec.model.Student;
 import com.tec.salsas.carpoolingtec.model.StudentRun;
 
 import java.io.IOException;
 
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -208,7 +212,7 @@ public class main extends AppCompatActivity
                                                             objectRequest = new JsonObjectRequest(
                                                                     Request.Method.POST,
                                                                     url1,
-                                                                    new JSONObject(mapper.writeValueAsString(current)),
+                                                                    new JSONObject(mapper.writeValueAsString(precurrent)),
                                                                     new Response.Listener<JSONObject>() {
 
                                                                         @Override
@@ -217,12 +221,12 @@ public class main extends AppCompatActivity
                                                                                 HashMap<String, String> result = (HashMap<String, String>) mapper.readValue(response.toString(), HashMap.class);
                                                                                 System.out.println(result.toString());
                                                                                 if(!result.get("carne").equals("none")){
+                                                                                    repeat.removeFirst();
+                                                                                    repeat.add(false);
                                                                                     current.setMyDriver(result.get("mail"));
                                                                                     System.out.println(result.get("nodoResidencia"));
                                                                                     generar_carro(Integer.parseInt(result.get("nodoResidencia")));
-                                                                                    
-                                                                                    repeat.removeFirst();
-                                                                                    repeat.add(false);
+                                                                                    viaje.start();
                                                                                 }
                                                                             } catch (IOException e) {
                                                                                 e.printStackTrace();
@@ -334,10 +338,6 @@ public class main extends AppCompatActivity
     }
 
 
-
-
-
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -372,4 +372,72 @@ public class main extends AppCompatActivity
         cadena.playSequentially(lista);
         cadena.start();
      }
+
+     private final LinkedList<NodoMapa> ruta = new LinkedList<>();
+     private final LinkedList<Boolean> continuar = new LinkedList<>();
+
+     public void getRuta() throws IOException {
+         try {
+             ruta.remove();
+         }catch(Exception e){
+         }
+
+         ObjectMapper mapper = new ObjectMapper();
+         String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student/ruta";
+
+         RequestQueue requestQueue = Volley.newRequestQueue(c);
+         JsonObjectRequest objectRequest = null;
+         try {
+             objectRequest = new JsonObjectRequest(
+                     Request.Method.PUT,
+                     url,
+                     new JSONObject(mapper.writeValueAsString(precurrent)),
+                     new Response.Listener<JSONObject>() {
+                         @Override
+                         public void onResponse(JSONObject response){
+                             ObjectMapper mapper = new ObjectMapper();
+
+                             try {
+                                 JSONArray temp = (JSONArray)response.get("result");
+                                 for(int i=0;i<temp.length();i++){
+                                     ruta.add(mapper.readValue(temp.get(0).toString(), NodoMapa.class));
+                                 }
+                             } catch (JSONException e) {
+                                 e.printStackTrace();
+                             } catch (JsonParseException e) {
+                                 e.printStackTrace();
+                             } catch (JsonMappingException e) {
+                                 e.printStackTrace();
+                             } catch (IOException e) {
+                                 e.printStackTrace();
+                             }
+
+
+                         }
+                     }, new Response.ErrorListener(){
+                 @Override
+                 public void onErrorResponse(VolleyError error){
+                     System.out.println(error.toString());
+                 }
+             }
+             );
+         } catch (JSONException e) {
+             e.printStackTrace();
+         }
+         requestQueue.add(objectRequest);
+     }
+
+     Thread viaje = new Thread(){
+
+         @Override
+         public void run(){
+             try {
+                 getRuta();
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+
+
+         }
+     };
 }

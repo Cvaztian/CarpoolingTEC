@@ -398,18 +398,6 @@
         android:onClick="seleccion"
         app:srcCompat="@drawable/puntero" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/punto26"
-        android:layout_marginEnd="-264dp"
-        android:layout_marginRight="-264dp"
-        android:layout_toStartOf="@+id/punto24"
-        android:layout_toLeftOf="@+id/punto24"
-        android:onClick="button2"
-        android:text="Button" />
-
     <ImageView
         android:id="@+id/usuario"
         android:layout_width="31dp"

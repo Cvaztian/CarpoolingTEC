@@ -1,4 +1,4 @@
-package processing;
+package com.tec.salsas.carpoolingtec.model;
 
 /**
  * @class NodoMapa

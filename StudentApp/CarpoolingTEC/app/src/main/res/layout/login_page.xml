@@ -42,6 +42,7 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:padding="8dp"
+                android:text="kev_zele@hotmail.com"
                 android:textColorHint="#ffffff" />
 
 
@@ -67,6 +68,7 @@
                 android:paddingTop="8dp"
                 android:paddingRight="8dp"
                 android:paddingBottom="8dp"
+                android:text="1234"
                 android:textColorHint="#ffffff" />
 
             <View
