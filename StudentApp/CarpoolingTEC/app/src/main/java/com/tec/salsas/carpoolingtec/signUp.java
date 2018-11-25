@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 
 import android.widget.Toast;
@@ -119,7 +120,7 @@ public class signUp extends AppCompatActivity {
      */
     public void CameraButton(View v){
             IntentIntegrator intent = new IntentIntegrator(this);
-            intent.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+            intent.setDesiredBarcodeFormats(Collections.singleton("CODE_128"));
             intent.setPrompt("Coloque su carnet dentro del rectángulo");
             intent.setCameraId(0);
             intent.setBeepEnabled(true);
