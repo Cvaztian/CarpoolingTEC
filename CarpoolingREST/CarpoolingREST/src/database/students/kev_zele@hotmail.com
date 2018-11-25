@@ -4,5 +4,5 @@
   <EMAIL>kev_zele@hotmail.com</EMAIL>
   <PASS>1234</PASS>
   <ID>2018</ID>
-  <HOME>1</HOME>
+  <HOME>8</HOME>
 </STUDENT>

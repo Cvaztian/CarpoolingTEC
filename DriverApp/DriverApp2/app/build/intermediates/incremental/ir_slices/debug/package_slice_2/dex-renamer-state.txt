@@ -1,0 +1,4 @@
+#Sat Nov 24 19:45:52 CST 2018
+base.0=/home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/build/intermediates/transforms/dexMerger/debug/2
+path.0=classes.dex
+renamed.0=classes.dex

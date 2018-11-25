@@ -259,8 +259,11 @@ public class main extends AppCompatActivity
                     e.printStackTrace();
                 }
                 requestQueue.add(objectRequest);
+
             }
         });
+
+        conversion_nodo_actual(Integer.parseInt(current.getNodoResidencia()));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -310,6 +313,8 @@ public class main extends AppCompatActivity
 
 
 
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -331,15 +336,10 @@ public class main extends AppCompatActivity
     }
 
     public void seleccion(View v){
-        ImageView a = (ImageView)findViewById(v.getId());
-        if (clickable){
-            if(this.residencia == null){
-                a.setImageResource(R.drawable.punterocasa);
-                this.clickable = false;
-            }
-        }
     }
-
+    public void conversion_nodo_actual(int a){
+        dictionary.get(a).setImageResource(R.drawable.punteroinicio);
+    }
      public void button2(View v){
         this.clickable= true;
         navegar(usuario,21);

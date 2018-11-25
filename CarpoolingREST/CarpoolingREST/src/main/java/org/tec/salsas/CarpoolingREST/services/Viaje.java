@@ -37,6 +37,12 @@ public class Viaje {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public DriverRun empairing(Student student) {
+		// Driver mockup
+		LinkedList<String> mockRuta = new LinkedList<>();
+		LinkedList<Student> mockPasajeros = new LinkedList<>();
+		mockRuta.add("8");
+	    DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,mockRuta);
+		colaDriverViajes.add(mockup);
 		return searchDriver(student);
 	}
 	

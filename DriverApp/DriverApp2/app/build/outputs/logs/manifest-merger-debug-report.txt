@@ -1,0 +1,230 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+MERGED from [com.android.support:design:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/41c04748c8575b01d81e0e29bc146d1a/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2592f37dde48ce2e70246ae440c10511/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/kevin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4cfbe4e21f48d026e579327e3d981423/AndroidManifest.xml:2:1-11:12
+MERGED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:support-v4:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/cdfb958c00d321c6bf852e93039c5d8f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:17:1-30:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/3a1b37c540ca752c5d4df3545b4d92c0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/8551398f1fb22b19f849f6882fd5dafb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/126ca8da8de1b41512534f71daa58e1d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/492d216c338c582918495a144171139c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/9ff0e06f9433cf605707701244f9350c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/b414544fe42ad8daffb6068c476b12a8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ba4707e55bcbaeebc847d16836f3a0d0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/86ff431503d42281ccb0529cdba1c1ad/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/f5cd18ac559d811a66bfbb7f92c4f343/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/1963f48b5f831dbd1b0d0651a3ae88df/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/cd961004307f1a8b05014e9634ed6af0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/4a70bc8b5ad89b6715f4068feeadf0ab/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/8a39dd382c512123271f967ca8350704/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/f8a1de9edf02ea91638511e656e93d06/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/4bf71a76e417bac83756e5ad94144d45/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/c5a3223950b4116648217c30ca3aa728/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/398e09b6694909dceb9b6e56252c50ae/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/66a89ee1d0a49e0fcecf896422ffec59/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d27a1d553953f1cef98897f7cb2b973a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2eefbc336e192897cf9a164b91cf39eb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/2ad1bceb1022c493b30134eeb202241c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/44876dfcd63a5b9a95735ff253530bf5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/3b9179a75008d343258eb45a9c026492/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/858b2f093ba4fa25bac924e1564b5bb4/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/1e26b4c454751efefdebef8c0c944ad6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/d844a5d2ff2df712e8e3a2b9ecbafa3b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/d5726a131c46c259883cd2c84a3ac518/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/196d91ee209a5d0b6277e18a413ed229/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/243d44bc9934cf51c564b05f26290fc4/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+	package
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:3:5-39
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:1-33:12
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:5:5-31:19
+MERGED from [com.android.support:design:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/41c04748c8575b01d81e0e29bc146d1a/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/41c04748c8575b01d81e0e29bc146d1a/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/kevin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4cfbe4e21f48d026e579327e3d981423/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/kevin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4cfbe4e21f48d026e579327e3d981423/AndroidManifest.xml:9:5-20
+MERGED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:13:5-20
+MERGED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:13:5-20
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:22:5-28:19
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:22:5-28:19
+MERGED from [com.android.support:support-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/398e09b6694909dceb9b6e56252c50ae/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/398e09b6694909dceb9b6e56252c50ae/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/858b2f093ba4fa25bac924e1564b5bb4/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/858b2f093ba4fa25bac924e1564b5bb4/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/398e09b6694909dceb9b6e56252c50ae/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.tec.salsas.driverapp.MainActivity
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:16:27-74
+activity#com.tec.salsas.driverapp.signup
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:19:9-44
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:19:19-41
+activity#com.tec.salsas.driverapp.Menu
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:20:9-42
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:20:19-39
+activity#com.tec.salsas.driverapp.Sidemenu
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:21:9-24:59
+	android:label
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:23:13-60
+	android:theme
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:24:13-56
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:22:13-37
+activity#com.tec.salsas.driverapp.Rateuser
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:25:9-46
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:25:19-43
+activity#com.tec.salsas.driverapp.AdventureSettings
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:26:9-55
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:26:19-52
+activity#com.tec.salsas.driverapp.AdventureActivity
+ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:27:9-30:56
+	android:label
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:29:13-61
+	android:theme
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:30:13-44
+	android:name
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml:28:13-46
+uses-sdk
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/41c04748c8575b01d81e0e29bc146d1a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/41c04748c8575b01d81e0e29bc146d1a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2592f37dde48ce2e70246ae440c10511/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2592f37dde48ce2e70246ae440c10511/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/kevin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4cfbe4e21f48d026e579327e3d981423/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/kevin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4cfbe4e21f48d026e579327e3d981423/AndroidManifest.xml:5:5-7:41
+MERGED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/cdfb958c00d321c6bf852e93039c5d8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/cdfb958c00d321c6bf852e93039c5d8f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/3a1b37c540ca752c5d4df3545b4d92c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/3a1b37c540ca752c5d4df3545b4d92c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/8551398f1fb22b19f849f6882fd5dafb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/8551398f1fb22b19f849f6882fd5dafb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/126ca8da8de1b41512534f71daa58e1d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/126ca8da8de1b41512534f71daa58e1d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/492d216c338c582918495a144171139c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/492d216c338c582918495a144171139c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/9ff0e06f9433cf605707701244f9350c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/9ff0e06f9433cf605707701244f9350c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/b414544fe42ad8daffb6068c476b12a8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/b414544fe42ad8daffb6068c476b12a8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ba4707e55bcbaeebc847d16836f3a0d0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ba4707e55bcbaeebc847d16836f3a0d0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/86ff431503d42281ccb0529cdba1c1ad/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/86ff431503d42281ccb0529cdba1c1ad/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/f5cd18ac559d811a66bfbb7f92c4f343/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/f5cd18ac559d811a66bfbb7f92c4f343/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/1963f48b5f831dbd1b0d0651a3ae88df/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/1963f48b5f831dbd1b0d0651a3ae88df/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/cd961004307f1a8b05014e9634ed6af0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/cd961004307f1a8b05014e9634ed6af0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/4a70bc8b5ad89b6715f4068feeadf0ab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/4a70bc8b5ad89b6715f4068feeadf0ab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/8a39dd382c512123271f967ca8350704/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/8a39dd382c512123271f967ca8350704/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/f8a1de9edf02ea91638511e656e93d06/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/f8a1de9edf02ea91638511e656e93d06/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/4bf71a76e417bac83756e5ad94144d45/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/4bf71a76e417bac83756e5ad94144d45/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/c5a3223950b4116648217c30ca3aa728/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/c5a3223950b4116648217c30ca3aa728/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/398e09b6694909dceb9b6e56252c50ae/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/398e09b6694909dceb9b6e56252c50ae/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/66a89ee1d0a49e0fcecf896422ffec59/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/66a89ee1d0a49e0fcecf896422ffec59/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d27a1d553953f1cef98897f7cb2b973a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d27a1d553953f1cef98897f7cb2b973a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2eefbc336e192897cf9a164b91cf39eb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2eefbc336e192897cf9a164b91cf39eb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/2ad1bceb1022c493b30134eeb202241c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/2ad1bceb1022c493b30134eeb202241c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/44876dfcd63a5b9a95735ff253530bf5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/44876dfcd63a5b9a95735ff253530bf5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/3b9179a75008d343258eb45a9c026492/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/3b9179a75008d343258eb45a9c026492/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/858b2f093ba4fa25bac924e1564b5bb4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/858b2f093ba4fa25bac924e1564b5bb4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/1e26b4c454751efefdebef8c0c944ad6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/1e26b4c454751efefdebef8c0c944ad6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/d844a5d2ff2df712e8e3a2b9ecbafa3b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/d844a5d2ff2df712e8e3a2b9ecbafa3b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/d5726a131c46c259883cd2c84a3ac518/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/d5726a131c46c259883cd2c84a3ac518/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/196d91ee209a5d0b6277e18a413ed229/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/196d91ee209a5d0b6277e18a413ed229/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/243d44bc9934cf51c564b05f26290fc4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/kevin/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/243d44bc9934cf51c564b05f26290fc4/AndroidManifest.xml:20:5-44
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		ADDED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from [:linkedin-sdk] /home/kevin/Documentos/DatosI/Proyectos/3/CarpoolingTEC/DriverApp/DriverApp2/linkedin-sdk/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:11:22-64
+provider#android.arch.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:23:9-27:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:25:13-68
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:27:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/kevin/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/f6cfd4aa65b41c0c0d19879dbe601955/AndroidManifest.xml:24:13-83
