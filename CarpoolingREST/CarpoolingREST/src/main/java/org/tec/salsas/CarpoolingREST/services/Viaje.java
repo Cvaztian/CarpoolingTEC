@@ -80,6 +80,17 @@ public class Viaje {
 		
 	}
 	
+	@GET
+	@Path("/student/verify")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public HashMap<String, Boolean> verifyS(Student student){
+		HashMap<String, Boolean> result = new HashMap<>();
+		result.put("result", false);
+		System.out.println("returning");
+		return result;
+	}
+	
 	/**
 	 * Busca un conductor para un especifico pasajero. El conductor encontrado 
 	 * debe tener en sus nodos de ruta el nodo del hogar del pasajero.

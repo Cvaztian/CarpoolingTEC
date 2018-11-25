@@ -30,6 +30,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -70,10 +71,12 @@ public class main extends AppCompatActivity
     AnimatorSet cadena;
     List<Animator> lista = new ArrayList<>();
     Boolean clickable;
-
+    int ETA;
     RelativeLayout marco;
 
     final Context c = this;
+
+    private final LinkedList<Boolean> result = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -226,7 +229,7 @@ public class main extends AppCompatActivity
                                                                                     current.setMyDriver(result.get("mail"));
                                                                                     System.out.println(result.get("nodoResidencia"));
                                                                                     generar_carro(Integer.parseInt(result.get("nodoResidencia")));
-                                                                                    viaje.start();
+                                                                                    getRuta();
                                                                                 }
                                                                             } catch (IOException e) {
                                                                                 e.printStackTrace();
@@ -291,31 +294,34 @@ public class main extends AppCompatActivity
 
     /**
      * Ejecuta la animacion de traslacion de un objeto hacia una ubicacion predefinida
-     * @param objeto imagen por trasladar
+     * @param objeto Objeto a mover
      * @param llegada identificacion de la ubicacion predefinida
      */
-    public void navegar(ImageView objeto, int llegada){
+    public void navegar(ImageView objeto, int llegada, int peso){
         ImageView destino;
         destino = dictionary.get(llegada);
         System.out.println("Este es el punto de partida: "+objeto.toString());
         System.out.println("X: "+objeto.getX()+" Y: "+objeto.getY());
         System.out.println("Este es el punto de llegada: "+destino.toString());
         System.out.println("X: "+destino.getX()+" Y: "+destino.getY());
-        PropertyValuesHolder rvhX = PropertyValuesHolder.ofFloat(ROTATION_X, destino.getX()-objeto.getX());
-        PropertyValuesHolder rvhY = PropertyValuesHolder.ofFloat(ROTATION_Y, destino.getY()-objeto.getY());
-        PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(TRANSLATION_X, destino.getX()-objeto.getX());
-        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(TRANSLATION_Y, destino.getY()-objeto.getY());
-        ObjectAnimator rotator = ObjectAnimator.ofPropertyValuesHolder(objeto, rvhX, rvhY);
+
+        //PropertyValuesHolder rvhX = PropertyValuesHolder.ofFloat(ROTATION, destino.getX()-objeto.getX());
+        //PropertyValuesHolder rvhY = PropertyValuesHolder.ofFloat(ROTATION, destino.getY()-objeto.getY());
+        PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(TRANSLATION_X, destino.getX());
+        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(TRANSLATION_Y, destino.getY());
+        //ObjectAnimator rotator = ObjectAnimator.ofPropertyValuesHolder(objeto, rvhX);
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(objeto, pvhX, pvhY);
-        animator.setDuration(5000);
-        rotator.setDuration(1000);
-        lista.add(rotator);
+        animator.setDuration(1500*peso);
+        //rotator.setDuration(1000);
+        //lista.add(rotator);
         lista.add(animator);
     }
 
+    ImageView carro;
+
     public void generar_carro(int a){
         ImageView b = dictionary.get(a);
-        ImageView carro = new ImageView(c);
+        carro = new ImageView(c);
         carro.setX(b.getX());
         carro.setY(b.getY());
         System.out.println("Generado en: "+a);
@@ -359,16 +365,18 @@ public class main extends AppCompatActivity
     }
 
     public void seleccion(View v){
+        System.out.println("Id:"+v.getId()+"X: "+v.getX()+" Y: "+v.getY());
     }
     public void conversion_nodo_actual(int a){
         dictionary.get(a).setImageResource(R.drawable.punteroinicio);
     }
      public void button2(View v){
         this.clickable= true;
+        /*
         navegar(usuario,21);
         navegar(usuario,7);
          navegar(usuario,17);
-         navegar(usuario,13);
+         navegar(usuario,13);*/
         cadena.playSequentially(lista);
         cadena.start();
      }
@@ -379,7 +387,8 @@ public class main extends AppCompatActivity
      public void getRuta() throws IOException {
          try {
              ruta.remove();
-         }catch(Exception e){
+         } catch (Exception e) {
+             System.out.println(e);
          }
 
          ObjectMapper mapper = new ObjectMapper();
@@ -394,14 +403,14 @@ public class main extends AppCompatActivity
                      new JSONObject(mapper.writeValueAsString(precurrent)),
                      new Response.Listener<JSONObject>() {
                          @Override
-                         public void onResponse(JSONObject response){
+                         public void onResponse(JSONObject response) {
                              ObjectMapper mapper = new ObjectMapper();
-
                              try {
-                                 JSONArray temp = (JSONArray)response.get("result");
-                                 for(int i=0;i<temp.length();i++){
-                                     ruta.add(mapper.readValue(temp.get(0).toString(), NodoMapa.class));
+                                 JSONArray temp = (JSONArray) response.get("result");
+                                 for (int i = 0; i < temp.length(); i++) {
+                                     ruta.add(mapper.readValue(temp.get(i).toString(), NodoMapa.class));
                                  }
+                                 System.out.println(ruta);
                              } catch (JSONException e) {
                                  e.printStackTrace();
                              } catch (JsonParseException e) {
@@ -412,11 +421,16 @@ public class main extends AppCompatActivity
                                  e.printStackTrace();
                              }
 
+                             try {
+                                 viaje();
+                             } catch (InterruptedException e) {
+                                 e.printStackTrace();
+                             }
 
                          }
-                     }, new Response.ErrorListener(){
+                     }, new Response.ErrorListener() {
                  @Override
-                 public void onErrorResponse(VolleyError error){
+                 public void onErrorResponse(VolleyError error) {
                      System.out.println(error.toString());
                  }
              }
@@ -427,17 +441,94 @@ public class main extends AppCompatActivity
          requestQueue.add(objectRequest);
      }
 
+
+     public void verify(){
+         ObjectMapper mapper = new ObjectMapper();
+         String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student/verify";
+
+         RequestQueue requestQueue = Volley.newRequestQueue(c);
+         JsonObjectRequest objectRequest = null;
+         try {
+             objectRequest = new JsonObjectRequest(
+                     Request.Method.GET,
+                     url,
+                     new JSONObject(mapper.writeValueAsString(current)),
+                     new Response.Listener<JSONObject>() {
+                         @Override
+                         public void onResponse(JSONObject response){
+                             ObjectMapper mapper = new ObjectMapper();
+                             try {
+                                 result.add(mapper.readValue(response.get("result").toString(), Boolean.class));
+                             } catch (JSONException e) {
+                                 e.printStackTrace();
+                             } catch (JsonParseException e) {
+                                 e.printStackTrace();
+                             } catch (JsonMappingException e) {
+                                 e.printStackTrace();
+                             } catch (IOException e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                     }, new Response.ErrorListener(){
+                 @Override
+                 public void onErrorResponse(VolleyError error){
+                     System.out.println(error.toString());
+                 }
+             }
+             );
+         } catch (JSONException e) {
+             e.printStackTrace();
+         } catch (JsonGenerationException e) {
+             e.printStackTrace();
+         } catch (JsonMappingException e) {
+             e.printStackTrace();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+         requestQueue.add(objectRequest);
+     }
+
+
+     public void viaje() throws InterruptedException {
+         for(NodoMapa nodo:ruta){
+             this.ETA += nodo.getTiempo();
+         }
+
+             ruta.removeFirst();
+             for(NodoMapa nodo:ruta){
+                 Toast.makeText(this, "El tiempo de llegada a su destino es de: "+this.ETA+" segundos", nodo.getTiempo());
+                 System.out.println(nodo.getiD());
+                 navegar(carro, nodo.getiD(), nodo.getTiempo());
+                 cadena.playSequentially(lista);
+                 cadena.start();
+                 this.ETA -= nodo.getTiempo();
+                 result.add(true);
+                 verify();
+                 /*
+                 while(result.getFirst()){
+                     Thread.sleep(100);
+                 }*/
+             }
+     }
+
+     /*
      Thread viaje = new Thread(){
 
          @Override
          public void run(){
              try {
                  getRuta();
+                 for(NodoMapa nodo:ruta){
+                     navegar(nodo.getiD(), nodo.getTiempo());
+                 }
+                 cadena.playSequentially(lista);
+                 cadena.start();
+
              } catch (IOException e) {
                  e.printStackTrace();
              }
 
 
          }
-     };
+     };*/
 }
