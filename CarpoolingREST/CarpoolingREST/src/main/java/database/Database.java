@@ -15,19 +15,21 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Database {
 	
 	private static String databaseLocation = "./Documentos/DatosI/Proyectos/3/CarpoolingTEC/CarpoolingREST/CarpoolingREST/src/database";
 	
 	public static Object checkLogin(String type, String email, String pass) throws Exception {
-		
 		if(type == "student") {
 			File userFile = findFile(type, email);
 			if(userFile == null) {
 				System.out.println(email);
 				System.out.println(userFile);
-				return new Student("none","","","","");
+				return new Student("none","","","","", null,0D);
 			}
 			return (Student)ReadXML(type, userFile);
 		}else if(type == "driver") {
@@ -84,8 +86,6 @@ public class Database {
     		return null;
     	}
     	
-    	
-    	
     }
     
     /**
@@ -113,12 +113,39 @@ public class Database {
 	        child4.addContent(estudiante.getCarne());
 	        Element child5 = new Element("HOME");
 	        child5.addContent(estudiante.getNodoResidencia());
-	
+	        Element child6 = new Element("RATE");
+	        child6.addContent(estudiante.getRate().toString());
+	        Element grandChild4 = new Element("SIZE");
+	        if(estudiante.getAmigos()==null) {
+	        	estudiante.setAmigos(new LinkedList<Driver>());
+	        }
+	        grandChild4.addContent(Integer.toString(estudiante.getAmigos().size()));
+	        Element e = new Element("FRIENDS");
+            root.addContent(e);
+            Element size = new Element("SIZE");
+            size.setText(Integer.toString(estudiante.getAmigos().size()));
+            e.addContent(size);
+	        for(Driver amigo:estudiante.getAmigos()){
+	            Element ae1 = new Element("FRIEND");
+
+	            Element e2 = new Element("NAME");
+	            e2.setText(amigo.getName());
+	            ae1.addContent(e2);
+
+	            Element e3 = new Element("EMAIL");
+	            e3.setText(amigo.getEmail());
+	            ae1.addContent(e3);
+
+	            List l = new ArrayList();
+	            l.add(ae1);
+	            e.addContent(l);
+	        }
 	        root.addContent(child1);
 	        root.addContent(child2);
 	        root.addContent(child3);
 	        root.addContent(child4);
 	        root.addContent(child5);
+	        root.addContent(child6);
 	
 	        doc.setRootElement(root);
 	
@@ -146,7 +173,19 @@ public class Database {
             Document document = (Document) builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             if(type.equals("student")) {
-            	result = new Student(rootNode.getChildText("ID"), rootNode.getChildText("NAME"), rootNode.getChildText("EMAIL"), rootNode.getChildText("HOME"), rootNode.getChildText("PASS"));
+            	List amigos = rootNode.getChildren("FRIENDS");
+            	System.out.println(amigos.toString());
+            	Element node = (Element) amigos.get(0);
+            	LinkedList<Driver> amigosDriver = new LinkedList<>();
+            	for(int i=0;i<Integer.parseInt(node.getChildText("SIZE"));i++) {
+            		Driver friendDriver = new Driver();
+            		Element friend = (Element)node.getChildren("FRIEND").get(i);
+            		friendDriver.setName(friend.getChildText("NAME"));
+            		friendDriver.setEmail(friend.getChildText("EMAIL"));
+            		amigosDriver.add(friendDriver);
+            	}
+            	result = (Student)new Student(rootNode.getChildText("ID"), rootNode.getChildText("NAME"), rootNode.getChildText("EMAIL"), rootNode.getChildText("HOME"), rootNode.getChildText("PASS"), amigosDriver, (Double)Double.parseDouble(rootNode.getChildText("RATE")));
+            	System.out.println((((Student) result).getRate()).toString());
             }else if(type.equals("driver")) {
             	result = new Driver();
             }else {

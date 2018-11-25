@@ -11,6 +11,8 @@ import javax.ws.rs.core.MediaType;
 
 import database.Database;
 
+import org.tec.salsas.CarpoolingREST.Processing.GestorMapa;
+import org.tec.salsas.CarpoolingREST.Processing.Mapa;
 import org.tec.salsas.CarpoolingREST.Processing.NodoMapa;
 import org.tec.salsas.CarpoolingREST.model.Driver;
 import org.tec.salsas.CarpoolingREST.model.DriverRun;
@@ -42,19 +44,20 @@ public class Viaje {
 		// Driver mockup
 		LinkedList<Student> mockPasajeros = new LinkedList<>();
 		DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null);
-		LinkedList<NodoMapa> mockRuta = new LinkedList<>();
+		
 		NodoMapa origen = new NodoMapa(Integer.parseInt(mockup.getNodoResidencia()),false,false,0);
 		NodoMapa medio1 = new NodoMapa(8, true, false, 1);
 		NodoMapa medio2 = new NodoMapa(9, true, false, 2);
 		NodoMapa medio3 = new NodoMapa(12, true, false, 3);
 		NodoMapa destino = new NodoMapa(1,false,false,4);
 		
-		mockRuta.addLast(origen);
-		mockRuta.addLast(medio1);
-		mockRuta.addLast(medio2);
-		mockRuta.addLast(medio3);
-		mockRuta.addLast(destino);
+		LinkedList<NodoMapa> destinos = new LinkedList<>();
+		destinos.add(origen);
+		destinos.add(destino);
+		destinos.add(medio1);
+		LinkedList<NodoMapa> mockRuta = GestorMapa.rutaOptima(Mapa.graph, destinos);
 		//mockRuta.add("8");
+		
 		mockup.setRuta(mockRuta);
 		colaDriverViajes.add(mockup);
 		

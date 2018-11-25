@@ -49,8 +49,7 @@ public class login {
 		
 		String email = dataList.get("mail");
 		String password = dataList.get("pass");
-		System.out.println(email);
-		System.out.println(password);
+		System.out.println();
 		return (Student)Database.checkLogin("student", email, password);
 	}
 	

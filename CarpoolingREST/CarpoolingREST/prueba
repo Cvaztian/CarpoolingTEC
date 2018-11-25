@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<STUDENT>
+  <FRIENDS>
+    <SIZE>4</SIZE>
+    <FRIEND>
+      <NAME>Kevin1</NAME>
+      <EMAIL>prueba</EMAIL>
+    </FRIEND>
+    <FRIEND>
+      <NAME>Kevin2</NAME>
+      <EMAIL>prueba</EMAIL>
+    </FRIEND>
+    <FRIEND>
+      <NAME>Kevin3</NAME>
+      <EMAIL>prueba</EMAIL>
+    </FRIEND>
+    <FRIEND>
+      <NAME>Kevin4</NAME>
+      <EMAIL>prueba</EMAIL>
+    </FRIEND>
+  </FRIENDS>
+  <NAME>Kevin</NAME>
+  <EMAIL>prueba</EMAIL>
+  <PASS>1234</PASS>
+  <ID>2018</ID>
+  <HOME>5</HOME>
+</STUDENT>
