@@ -1,5 +1,5 @@
 package org.tec.salsas.CarpoolingREST.services;
-
+/*
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import database.Database;
 
+import org.tec.salsas.CarpoolingREST.Processing.NodoMapa;
 import org.tec.salsas.CarpoolingREST.model.Driver;
 import org.tec.salsas.CarpoolingREST.model.DriverRun;
 import org.tec.salsas.CarpoolingREST.model.Student;
@@ -20,6 +21,7 @@ public class Viaje {
 	
 	private static LinkedList<Student> colaStudentViajes = new LinkedList<>();
 	private static LinkedList<DriverRun> colaDriverViajes = new LinkedList<>();
+	private static HashMap<Student, DriverRun> viajesAsignados = new HashMap<>();
 	
 	@PUT
 	@Path("/student")
@@ -38,18 +40,35 @@ public class Viaje {
 	@Produces(MediaType.APPLICATION_JSON)
 	public DriverRun empairing(Student student) {
 		// Driver mockup
-		LinkedList<String> mockRuta = new LinkedList<>();
 		LinkedList<Student> mockPasajeros = new LinkedList<>();
-		mockRuta.add("8");
-	    DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,mockRuta);
+		DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null);
+		LinkedList<NodoMapa> mockRuta = new LinkedList<>();
+		NodoMapa origen = new NodoMapa();
+		
+		
+		
+		//mockRuta.add("8");
+	    
 		colaDriverViajes.add(mockup);
-		return searchDriver(student);
+		
+		DriverRun asignado = searchDriver(student);
+		viajesAsignados.put(student, asignado);
+		
+		return asignado;
+	}
+	
+	@GET
+	@Path("/student/ruta")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public LinkedList<NodoMapa> getRuta(Student student){
+		//return viajesAsignados.get(student).getRuta();
 	}
 	
 	/**
 	 * Busca un conductor para un especifico pasajero. El conductor encontrado 
 	 * debe tener en sus nodos de ruta el nodo del hogar del pasajero.
-	 * */
+	 * *//*
 	private DriverRun searchDriver(Student student) {
 		LinkedList<String> pruebaR = new LinkedList<>();
 		pruebaR.add("0");
@@ -70,4 +89,4 @@ public class Viaje {
 		return new DriverRun("none","","","","",new LinkedList<Student>(),new LinkedList<String>());
 	}
 	
-}
+}*/

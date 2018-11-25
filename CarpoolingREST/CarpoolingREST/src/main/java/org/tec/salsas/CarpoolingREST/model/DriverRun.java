@@ -2,6 +2,8 @@ package org.tec.salsas.CarpoolingREST.model;
 
 import java.util.LinkedList;
 
+import org.tec.salsas.CarpoolingREST.Processing.NodoMapa;
+
 /**
  * Esta clase posee atributos especiales para una corrida de la app que no deben ser guardados en la base de datos
  * @author Kevin Zeledon
@@ -9,9 +11,9 @@ import java.util.LinkedList;
 public class DriverRun extends Driver {
     
     private LinkedList<Student> pasajeros;
-    private LinkedList<String> ruta;
+    private LinkedList<NodoMapa> ruta;
 
-    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, LinkedList<Student> pasajeros, LinkedList<String> ruta) {
+    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, LinkedList<Student> pasajeros, LinkedList<NodoMapa> ruta) {
         super(carne, name, email, pass, nodoResidencia);
         this.pasajeros = pasajeros;
         this.ruta = ruta;
@@ -25,11 +27,11 @@ public class DriverRun extends Driver {
         this.pasajeros = pasajeros;
     }
 
-    public LinkedList<String> getRuta() {
+    public LinkedList<NodoMapa> getRuta() {
         return ruta;
     }
 
-    public void setRuta(LinkedList<String> ruta) {
+    public void setRuta(LinkedList<NodoMapa> ruta) {
         this.ruta = ruta;
     }
 }

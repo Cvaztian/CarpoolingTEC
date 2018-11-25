@@ -21,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -66,6 +67,10 @@ public class main extends AppCompatActivity
     List<Animator> lista = new ArrayList<>();
     Boolean clickable;
 
+    RelativeLayout marco;
+
+    final Context c = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +92,7 @@ public class main extends AppCompatActivity
         View header = navigationView.getHeaderView(0);
         TextView nameT = (TextView) header.findViewById(R.id.nameTextView);
         TextView emailT = (TextView) header.findViewById(R.id.mailTextView);
+        marco = findViewById(R.id.marco);
 
         nameT.setText(current.getName());
         emailT.setText(current.getEmail());
@@ -212,6 +218,9 @@ public class main extends AppCompatActivity
                                                                                 System.out.println(result.toString());
                                                                                 if(!result.get("carne").equals("none")){
                                                                                     current.setMyDriver(result.get("mail"));
+                                                                                    System.out.println(result.get("nodoResidencia"));
+                                                                                    generar_carro(Integer.parseInt(result.get("nodoResidencia")));
+                                                                                    
                                                                                     repeat.removeFirst();
                                                                                     repeat.add(false);
                                                                                 }
@@ -288,8 +297,8 @@ public class main extends AppCompatActivity
         System.out.println("X: "+objeto.getX()+" Y: "+objeto.getY());
         System.out.println("Este es el punto de llegada: "+destino.toString());
         System.out.println("X: "+destino.getX()+" Y: "+destino.getY());
-        PropertyValuesHolder rvhX = PropertyValuesHolder.ofFloat(ROTATION, destino.getX()-objeto.getX());
-        PropertyValuesHolder rvhY = PropertyValuesHolder.ofFloat(ROTATION_X, destino.getY()-objeto.getY());
+        PropertyValuesHolder rvhX = PropertyValuesHolder.ofFloat(ROTATION_X, destino.getX()-objeto.getX());
+        PropertyValuesHolder rvhY = PropertyValuesHolder.ofFloat(ROTATION_Y, destino.getY()-objeto.getY());
         PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(TRANSLATION_X, destino.getX()-objeto.getX());
         PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(TRANSLATION_Y, destino.getY()-objeto.getY());
         ObjectAnimator rotator = ObjectAnimator.ofPropertyValuesHolder(objeto, rvhX, rvhY);
@@ -299,6 +308,20 @@ public class main extends AppCompatActivity
         lista.add(rotator);
         lista.add(animator);
     }
+
+    public void generar_carro(int a){
+        ImageView b = dictionary.get(a);
+        ImageView carro = new ImageView(c);
+        carro.setX(b.getX());
+        carro.setY(b.getY());
+        System.out.println("Generado en: "+a);
+        carro.setImageResource(R.drawable.carro);
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(110,92);
+        carro.setLayoutParams(params);
+        marco.addView(carro);
+    }
+
 
     @Override
     public void onBackPressed() {

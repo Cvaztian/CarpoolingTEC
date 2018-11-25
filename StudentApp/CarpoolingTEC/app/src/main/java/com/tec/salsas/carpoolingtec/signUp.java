@@ -38,6 +38,7 @@ public class signUp extends AppCompatActivity {
     public static Student newStudent;
     private EditText pass;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +128,7 @@ public class signUp extends AppCompatActivity {
             intent.setBarcodeImageEnabled(false);
             intent.initiateScan();
         }
+
 
     /**
      * Muestra el resultado de la lectura del codigo de barras
