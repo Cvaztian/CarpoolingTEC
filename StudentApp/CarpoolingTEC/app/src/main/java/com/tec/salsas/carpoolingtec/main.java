@@ -30,6 +30,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -74,6 +75,8 @@ public class main extends AppCompatActivity
     RelativeLayout marco;
 
     final Context c = this;
+
+    private final LinkedList<Boolean> result = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -384,7 +387,8 @@ public class main extends AppCompatActivity
      public void getRuta() throws IOException {
          try {
              ruta.remove();
-         }catch(Exception e){
+         } catch (Exception e) {
+             System.out.println(e);
          }
 
          ObjectMapper mapper = new ObjectMapper();
@@ -399,11 +403,11 @@ public class main extends AppCompatActivity
                      new JSONObject(mapper.writeValueAsString(precurrent)),
                      new Response.Listener<JSONObject>() {
                          @Override
-                         public void onResponse(JSONObject response){
+                         public void onResponse(JSONObject response) {
                              ObjectMapper mapper = new ObjectMapper();
                              try {
-                                 JSONArray temp = (JSONArray)response.get("result");
-                                 for(int i=0;i<temp.length();i++){
+                                 JSONArray temp = (JSONArray) response.get("result");
+                                 for (int i = 0; i < temp.length(); i++) {
                                      ruta.add(mapper.readValue(temp.get(i).toString(), NodoMapa.class));
                                  }
                                  System.out.println(ruta);
@@ -417,12 +421,16 @@ public class main extends AppCompatActivity
                                  e.printStackTrace();
                              }
 
-                             viaje();
+                             try {
+                                 viaje();
+                             } catch (InterruptedException e) {
+                                 e.printStackTrace();
+                             }
 
                          }
-                     }, new Response.ErrorListener(){
+                     }, new Response.ErrorListener() {
                  @Override
-                 public void onErrorResponse(VolleyError error){
+                 public void onErrorResponse(VolleyError error) {
                      System.out.println(error.toString());
                  }
              }
@@ -434,16 +442,67 @@ public class main extends AppCompatActivity
      }
 
 
-     public void viaje(){
+     public void verify(){
+         ObjectMapper mapper = new ObjectMapper();
+         String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student/verify";
+
+         RequestQueue requestQueue = Volley.newRequestQueue(c);
+         JsonObjectRequest objectRequest = null;
+         try {
+             objectRequest = new JsonObjectRequest(
+                     Request.Method.GET,
+                     url,
+                     new JSONObject(mapper.writeValueAsString(current)),
+                     new Response.Listener<JSONObject>() {
+                         @Override
+                         public void onResponse(JSONObject response){
+                             ObjectMapper mapper = new ObjectMapper();
+                             try {
+                                 result.add(mapper.readValue(response.get("result").toString(), Boolean.class));
+                             } catch (JSONException e) {
+                                 e.printStackTrace();
+                             } catch (JsonParseException e) {
+                                 e.printStackTrace();
+                             } catch (JsonMappingException e) {
+                                 e.printStackTrace();
+                             } catch (IOException e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                     }, new Response.ErrorListener(){
+                 @Override
+                 public void onErrorResponse(VolleyError error){
+                     System.out.println(error.toString());
+                 }
+             }
+             );
+         } catch (JSONException e) {
+             e.printStackTrace();
+         } catch (JsonGenerationException e) {
+             e.printStackTrace();
+         } catch (JsonMappingException e) {
+             e.printStackTrace();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+         requestQueue.add(objectRequest);
+     }
+
+
+     public void viaje() throws InterruptedException {
              ruta.removeFirst();
              for(NodoMapa nodo:ruta){
                  System.out.println(nodo.getiD());
                  navegar(carro, nodo.getiD(), nodo.getTiempo());
+                 cadena.playSequentially(lista);
+                 cadena.start();
+                 result.add(true);
+                 verify();
+                 /*
+                 while(result.getFirst()){
+                     Thread.sleep(100);
+                 }*/
              }
-             cadena.playSequentially(lista);
-             cadena.start();
-
-
      }
 
      /*
