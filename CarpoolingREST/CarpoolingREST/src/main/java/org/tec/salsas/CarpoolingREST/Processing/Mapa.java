@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Mapa {
 
-    private Graph graph;
+    public static Graph graph;
 
     /**
      * Constructor
@@ -21,11 +21,15 @@ public class Mapa {
     public Mapa(Graph graph){
         this.graph = graph;
     }
+    
+    public Mapa() {
+    	
+    }
 
     /**
      * Establece relaciones fijas para el Single graph
      */
-    public void staticMap(){
+    public static void staticMap(){
 
         Random random = new Random();
         int aleatorio = random.nextInt(20);
@@ -83,21 +87,20 @@ public class Mapa {
     /**
      * Contiene la relacion entre puntos del mapa
      */
-    public void generateMap() throws Exception{
+    public static void generateMap() throws Exception{
         Generator gen = new LobsterGenerator(10);
         Random random = new Random();
         int aleatorio;
-
+        System.out.println(gen);
         gen.addSink(graph);
         gen.begin();
         for(int i=0; i<30; i++) {
             gen.nextEvents();
         }
         gen.end();
-        graph.display();
 
         for(Edge e:graph.getEachEdge()) {
-            aleatorio = random.nextInt(20);
+            aleatorio = random.nextInt(10);
 
             while(aleatorio==0){
                 aleatorio = random.nextInt(20);
