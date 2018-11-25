@@ -71,7 +71,7 @@ public class main extends AppCompatActivity
     AnimatorSet cadena;
     List<Animator> lista = new ArrayList<>();
     Boolean clickable;
-
+    int ETA;
     RelativeLayout marco;
 
     final Context c = this;
@@ -490,12 +490,18 @@ public class main extends AppCompatActivity
 
 
      public void viaje() throws InterruptedException {
+         for(NodoMapa nodo:ruta){
+             this.ETA += nodo.getTiempo();
+         }
+
              ruta.removeFirst();
              for(NodoMapa nodo:ruta){
+                 Toast.makeText(this, "El tiempo de llegada a su destino es de: "+this.ETA+" segundos", nodo.getTiempo());
                  System.out.println(nodo.getiD());
                  navegar(carro, nodo.getiD(), nodo.getTiempo());
                  cadena.playSequentially(lista);
                  cadena.start();
+                 this.ETA -= nodo.getTiempo();
                  result.add(true);
                  verify();
                  /*
