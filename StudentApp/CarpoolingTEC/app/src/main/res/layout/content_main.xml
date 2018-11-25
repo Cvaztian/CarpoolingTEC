@@ -387,7 +387,7 @@
         app:srcCompat="@drawable/puntero" />
 
     <ImageView
-        android:id="@+id/punto0"
+        android:id="@+id/punto30"
         android:layout_width="28dp"
         android:layout_height="32dp"
         android:layout_alignParentStart="true"

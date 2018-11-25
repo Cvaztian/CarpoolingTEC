@@ -33,7 +33,7 @@ import java.util.Map;
 public class signupMap extends AppCompatActivity {
 
         Student current;
-        ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11, punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto0, usuario;
+        ImageView residencia, punto1, punto2, punto3, punto4, punto5, punto6, punto7, punto8, punto9, punto10, punto11, punto12, punto13, punto14, punto15, punto16, punto17, punto18, punto19, punto20, punto21, punto22, punto23, punto24, punto25, punto26, punto27, punto28, punto29, punto30, usuario;
         Boolean clickable;
         HashMap dictionary;
 
@@ -72,7 +72,7 @@ public class signupMap extends AppCompatActivity {
             punto27 = findViewById(R.id.punto27);
             punto28 = findViewById(R.id.punto28);
             punto29 = findViewById(R.id.punto29);
-            punto0 = findViewById(R.id.punto0);
+            punto30 = findViewById(R.id.punto30);
             usuario = findViewById(R.id.usuario);
 
             dictionary = new HashMap<Integer, ImageView>();
@@ -105,7 +105,7 @@ public class signupMap extends AppCompatActivity {
             dictionary.put(27,punto27);
             dictionary.put(28,punto28);
             dictionary.put(29,punto29);
-            dictionary.put(0,punto0);
+            dictionary.put(30,punto30);
 
             this.clickable=true;
         }
