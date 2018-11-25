@@ -23,7 +23,11 @@
             android:label="@string/title_activity_sidemenu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Rateuser" />
-        <activity android:name=".AdventureSettings"></activity>
+        <activity android:name=".AdventureSettings" />
+        <activity
+            android:name=".AdventureActivity"
+            android:label="@string/title_activity_adventure"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
