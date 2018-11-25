@@ -65,7 +65,7 @@ public class signUp extends AppCompatActivity {
         String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/signup/student";
         if(pass.getText().toString().isEmpty()){
             //Toast
-            String text = "Ingrese una contrasenna";
+            String text = "Ingrese una contraseña";
             Context context = getApplicationContext();
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
