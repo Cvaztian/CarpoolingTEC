@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
-
 import com.linkedin.platform.APIHelper;
 import com.linkedin.platform.LISessionManager;
 import com.linkedin.platform.errors.LIApiError;
@@ -19,33 +17,18 @@ import com.linkedin.platform.listeners.ApiListener;
 import com.linkedin.platform.listeners.ApiResponse;
 import com.linkedin.platform.listeners.AuthListener;
 import com.linkedin.platform.utils.Scope;
-
+import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.security.MessageDigest;
 
 public class signup extends AppCompatActivity {
-
-    public static final String host = "api.linkedin.com";
-    public static final String url = "https://"+host+"/v1/people/~:"+"(email-address,formatted-name,phone-numbers,picture-urls::(original))";
-
-    private TextView username, usermail, token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         computePakageHash();
-
-        username=(TextView)findViewById(R.id.name);
-        usermail=(TextView)findViewById(R.id.email);
-        token=(TextView)findViewById(R.id.printToken);
-
-        Bundle bundle = getIntent().getExtras();
-        String getoken = bundle.getString("value");
-
-        token.setText(getoken);
-        linkedinHelperApi();
+        handleLogin();
     }
 
     private void computePakageHash() {
@@ -59,38 +42,61 @@ public class signup extends AppCompatActivity {
                 Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         } catch (Exception e) {
-            System.out.println(e);
-            Log.e("TAG",e.getMessage());
+            Log.e("TAG", e.getMessage());
         }
     }
 
-    public void linkedinHelperApi(){
-        APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
-        apiHelper.getRequest(signup.this, url, new ApiListener() {
+    private void handleLogin() {
+        LISessionManager.getInstance(getApplicationContext()).init(this, buildScope(), new AuthListener() {
+            @Override
+            public void onAuthSuccess() {
+                // Authentication was successful.  You can now do
+                // other calls with the SDK.
+                fetchPersonalInfo();
+            }
+
+            @Override
+            public void onAuthError(LIAuthError error) {
+                Log.e("DEBAJYOTI", error.toString());
+            }
+        }, true);
+    }
+
+    // Build the list of member permissions our LinkedIn session requires
+    private static Scope buildScope() {
+        return Scope.build(Scope.R_BASICPROFILE, Scope.W_SHARE, Scope.R_EMAILADDRESS);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Add this line to your existing onActivityResult() method
+        LISessionManager.getInstance(getApplicationContext()).onActivityResult(this, requestCode, resultCode, data);
+    }
+
+    private void fetchPersonalInfo() {
+        String url = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,picture-url,email-Address)?format=json";
+        final APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
+        apiHelper.getRequest(this, url, new ApiListener() {
             @Override
             public void onApiSuccess(ApiResponse apiResponse) {
-                try{
-                    finalResult(apiResponse.getResponseDataAsJson());
-                }
-                catch (Exception e){
-                    System.out.println(e);
+                // Success!
+                try {
+                    JSONObject jsonObject = apiResponse.getResponseDataAsJson();
+                    String firstName = jsonObject.getString("firstName");
+                    String lastName = jsonObject.getString("lastName");
+                    String emailAddress = jsonObject.getString("emailAddress");
+                    Intent intent = new Intent(signup.this, AdventureSettings.class);
+                    startActivity(intent);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
 
             @Override
-            public void onApiError(LIApiError LIApiError) {
-                System.out.println("hahdsa");
+            public void onApiError(LIApiError liApiError) {
+                // Error making GET request!
+                Log.e("XYZ", liApiError.getMessage());
             }
         });
-    }
-
-    public void finalResult(JSONObject jsonObject){
-        try{
-            username.setText("Full Name:  "+jsonObject.get("formattedName").toString());
-            usermail.setText("Email Address:  "+jsonObject.get("emailAddress").toString());
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
     }
 }

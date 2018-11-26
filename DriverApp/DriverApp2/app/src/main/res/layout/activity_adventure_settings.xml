@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdventureSettings">
+    tools:context=".AdventureSettings"
+    android:background="@drawable/bg_gradient">
 
     <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -21,24 +22,6 @@
             android:layout_height="wrap_content"
             android:text="Elija la modalidad del viaje" />
 
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Con amigos" />
-
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ruta más rápida" />
-        </RadioGroup>
 
         <TextView
             android:id="@+id/textView5"
@@ -53,6 +36,16 @@
             android:ems="10"
             android:inputType="number" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
@@ -61,5 +54,60 @@
             android:text="Listo" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/amigos"
+        android:text="" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/button5"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="-4dp"
+        android:background="@drawable/hourglass"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button5"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="-10dp"
+        android:text="Con amigos"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button6"
+        android:layout_alignParentTop="true"
+        android:textColor="#ffffff"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="109dp"
+        android:text="Sin desvíos" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/button6"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/add"
+        android:text="" />
 
 </RelativeLayout>

@@ -18,16 +18,14 @@
         </activity>
         <activity android:name=".signup" />
         <activity android:name=".Menu" />
-        <activity
-            android:name=".Sidemenu"
-            android:label="@string/title_activity_sidemenu"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Rateuser" />
         <activity android:name=".AdventureSettings" />
         <activity
             android:name=".AdventureActivity"
             android:label="@string/title_activity_adventure"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".rating" />
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 
 </manifest>
