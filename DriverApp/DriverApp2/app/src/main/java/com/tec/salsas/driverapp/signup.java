@@ -29,7 +29,7 @@ public class signup extends AppCompatActivity {
     public static final String host = "api.linkedin.com";
     public static final String url = "https://"+host+"/v1/people/~:"+"(email-address,formatted-name,phone-numbers,picture-urls::(original))";
 
-    private TextView username, usermail, token;
+    private TextView username, useremail, token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class signup extends AppCompatActivity {
         computePakageHash();
 
         username=(TextView)findViewById(R.id.name);
-        usermail=(TextView)findViewById(R.id.email);
+        useremail=(TextView)findViewById(R.id.email);
         token=(TextView)findViewById(R.id.printToken);
 
         Bundle bundle = getIntent().getExtras();
@@ -87,7 +87,7 @@ public class signup extends AppCompatActivity {
     public void finalResult(JSONObject jsonObject){
         try{
             username.setText("Full Name:  "+jsonObject.get("formattedName").toString());
-            usermail.setText("Email Address:  "+jsonObject.get("emailAddress").toString());
+            useremail.setText("Email Address:  "+jsonObject.get("emailAddress").toString());
         }
         catch (Exception e){
             System.out.println(e);
