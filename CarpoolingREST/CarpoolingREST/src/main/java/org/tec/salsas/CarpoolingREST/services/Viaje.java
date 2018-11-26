@@ -95,6 +95,11 @@ public class Viaje {
 		return asignado;
 	}
 	
+	/**
+	 * Funcion que retorna la ruta al cliente
+	 * @param student Estudiante del cual se quiere la ruta
+	 * @return Hashmap con la ruta
+	 * */
 	@PUT
 	@Path("/student/ruta")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -112,7 +117,11 @@ public class Viaje {
 	}
 	
 	
-	
+	/**
+	 * Funcion para ratear al driver desde studentapp
+	 * @param prueba Hashmap con correo y nueva calificacion
+	 * @return Hashmap con verificacion
+	 * */
 	@PUT
 	@Path("/rateDriver")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -136,7 +145,11 @@ public class Viaje {
 	}
 	
 	
-	
+	/**
+	 * Funcion que verifica si la ruta del estudiante esta bien
+	 * @param student estudiante del cual se necesita averiguar si la ruta esta bien
+	 * @return Hashmap verificacion 
+	 * */
 	@GET
 	@Path("/student/verify")
 	@Consumes(MediaType.APPLICATION_JSON)
