@@ -3353,6 +3353,7 @@
     <option name="y" value="27" />
     <option name="width" value="1513" />
     <option name="height" value="661" />
+
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -3587,6 +3588,39 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+
+
+
+      <window_info anchor="bottom" id="Android Profiler" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info id="Build Variants" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Preview" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32882273" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20925553" />
+      <window_info anchor="bottom" id="Build" weight="0.32882273" />
+      <window_info anchor="right" id="Gradle" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+>>>>>>> 53517d6d0be6f6c3adac022752c6d48e484b1581
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3603,6 +3637,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_adventure.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_adventure.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tec/salsas/driverapp/AdventureActivity.java" />
+
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tec/salsas/driverapp/MainActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_adventure_settings.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
@@ -3613,6 +3648,9 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_adventure.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_adventure.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tec/salsas/driverapp/AdventureActivity.java" />
+=======
+
+>>>>>>> 53517d6d0be6f6c3adac022752c6d48e484b1581
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tec/salsas/driverapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">

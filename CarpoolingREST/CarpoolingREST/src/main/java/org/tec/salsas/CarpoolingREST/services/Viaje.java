@@ -55,7 +55,9 @@ public class Viaje {
 		destinos.add(origen);
 		destinos.add(destino);
 		destinos.add(medio1);
+
 		LinkedList<NodoMapa> mockRuta = GestorMapa.rutaOptima(Mapa.graph, destinos);
+
 		//mockRuta.add("8");
 		
 		mockup.setRuta(mockRuta);
