@@ -14,6 +14,7 @@ public class DrawView extends View {
     private void init() {
         paint.setColor(Color.GREEN);
         paint.setStrokeWidth(5f);
+        paint.setStyle(Paint.Style.STROKE);
     }
 
     public int getX2() {
@@ -65,7 +66,7 @@ public class DrawView extends View {
     }
 
     public void onDraw(Canvas canvas) {
-        canvas.drawLine(x1, y1, x2, y2, paint);
+       canvas.drawLine(x1, y1, x2, y2, paint);
     }
 
 }

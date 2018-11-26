@@ -12,17 +12,27 @@ public class Driver {
     private String email;
     private String pass;
     private String nodoResidencia;
+    private double rate;
 
     public Driver(){
 
     }
 
-    public Driver(String carne, String name, String email, String pass, String nodoResidencia) {
+    public Driver(String carne, String name, String email, String pass, String nodoResidencia, Double rate) {
         this.carne = carne;
         this.name = name;
         this.email = email;
         this.pass = pass;
         this.nodoResidencia = nodoResidencia;
+        this.rate = rate;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
     public String getCarne() {

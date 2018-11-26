@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tec.salsas.carpoolingtec.R;
+import com.tec.salsas.carpoolingtec.main;
 
 public class Rating extends AppCompatActivity {
 
@@ -64,7 +65,9 @@ public class Rating extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                finishActivity(1);
+                Rating.super.finish();
+
+
 
             }
 

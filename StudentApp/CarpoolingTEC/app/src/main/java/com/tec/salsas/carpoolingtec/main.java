@@ -57,6 +57,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -81,7 +82,7 @@ public class main extends AppCompatActivity
     Boolean clickable;
     int ETA;
     RelativeLayout marco;
-
+    ArrayList<ImageView> orden;
     final Context c = this;
 
     private final LinkedList<Boolean> result = new LinkedList<>();
@@ -147,6 +148,7 @@ public class main extends AppCompatActivity
         punto29 = (ImageView) findViewById(R.id.punto29);
         punto0 = (ImageView) findViewById(R.id.punto0);
         usuario = (ImageView) findViewById(R.id.usuario);
+        orden = new ArrayList<>(Arrays.asList(punto0,punto1,punto2,punto3,punto4,punto5,punto6,punto7,punto8,punto9,punto10,punto11,punto12,punto13,punto14,punto15,punto16,punto17,punto18,punto19,punto20,punto21,punto21,punto23,punto24,punto25,punto26,punto27,punto28,punto29));
 
         dictionary = new HashMap<Integer, ImageView>();
         dictionary.put(1, punto1);
@@ -300,7 +302,9 @@ public class main extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
     }
-
+    public void frente(ImageView a){
+        a.bringToFront();
+    }
     /**
      * Ejecuta la animacion de traslacion de un objeto hacia una ubicacion predefinida
      *
@@ -314,8 +318,8 @@ public class main extends AppCompatActivity
         System.out.println("X: " + objeto.getX() + " Y: " + objeto.getY());
         System.out.println("Este es el punto de llegada: " + destino.toString());
         System.out.println("X: " + destino.getX() + " Y: " + destino.getY());
-        PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(TRANSLATION_X, destino.getX());
-        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(TRANSLATION_Y, destino.getY());
+        PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(TRANSLATION_X, destino.getX()-20);
+        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(TRANSLATION_Y, destino.getY()-30);
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(objeto, pvhX, pvhY);
         animator.setDuration(1500 * peso);
         lista.add(animator);
@@ -326,12 +330,12 @@ public class main extends AppCompatActivity
     public void generar_carro(int a) {
         ImageView b = dictionary.get(a);
         carro = new ImageView(c);
-        carro.setX(b.getX());
-        carro.setY(b.getY());
+        carro.setX(b.getX()-20);
+        carro.setY(b.getY()-30);
         System.out.println("Generado en: " + a);
         carro.setImageResource(R.drawable.carro);
 
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(110, 92);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(125, 125);
         carro.setLayoutParams(params);
         marco.addView(carro);
     }
@@ -503,10 +507,12 @@ public class main extends AppCompatActivity
 
 
 
-        new CountDownTimer(this.ETA * 1500, 1000) {
+        new CountDownTimer(this.ETA * 1500 +2000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                displayer.setText("ETA: " + millisUntilFinished / 1000 + " segundos");
+                if((millisUntilFinished / 1000)-2>=0) {
+                    displayer.setText("ETA: " + ((millisUntilFinished / 1000) - 2) + " segundos");
+                }
                 //here you can have your logic to set text to edittext
             }
 
@@ -514,21 +520,28 @@ public class main extends AppCompatActivity
                 displayer.setText("Viaje finalizado");
                 Intent intent = new Intent(c, Rating.class);
                 startActivity(intent);
+                main.super.finish();
             }
 
         }.start();
         for (int i = 0; i < ruta.size(); i++) {
             if (i+1 != ruta.size()) {
                 DrawView drawing = new DrawView(this);
-                drawing.setX1((int) dictionary.get(ruta.get(i).getiD()).getX() + 56);
-                drawing.setY1((int) dictionary.get(ruta.get(i).getiD()).getY() + 64);
-                drawing.setX2((int) dictionary.get(ruta.get(i + 1).getiD()).getX() + 56);
-                drawing.setY2((int) dictionary.get(ruta.get(i + 1).getiD()).getY() + 64);
+                drawing.setX1((int) dictionary.get(ruta.get(i).getiD()).getX()+42);
+                drawing.setY1((int) dictionary.get(ruta.get(i).getiD()).getY()+80);
+                drawing.setX2((int) dictionary.get(ruta.get(i + 1).getiD()).getX()+42);
+                drawing.setY2((int) dictionary.get(ruta.get(i + 1).getiD()).getY()+85);
                 marco.addView(drawing);
             }
-            navegar(carro, ruta.get(i).getiD(), ruta.get(i).getTiempo());
-            cadena.playSequentially(lista);
-            cadena.start();
+            for(ImageView n:orden){
+                frente(n);
+            }
+            frente(carro);
+            if(i!=0) {
+                navegar(carro, ruta.get(i).getiD(), ruta.get(i).getTiempo());
+                cadena.playSequentially(lista);
+                cadena.start();
+            }
             this.ETA -= ruta.get(i).getTiempo();
             result.add(true);
             verify();
