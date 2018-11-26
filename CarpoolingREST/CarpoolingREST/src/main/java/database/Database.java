@@ -29,7 +29,7 @@ public class Database {
 			if(userFile == null) {
 				System.out.println(email);
 				System.out.println(userFile);
-				return new Student("none","","","","", null,0D);
+				return new Student("none","","","","", null,0D,"");
 			}
 			return (Student)ReadXML(type, userFile);
 		}else if(type == "driver") {
@@ -184,7 +184,7 @@ public class Database {
             		friendDriver.setRate(Double.parseDouble(friend.getChildText("RATE")));
             		amigosDriver.add(friendDriver);
             	}
-            	result = (Student)new Student(rootNode.getChildText("ID"), rootNode.getChildText("NAME"), rootNode.getChildText("EMAIL"), rootNode.getChildText("HOME"), rootNode.getChildText("PASS"), amigosDriver, (Double)Double.parseDouble(rootNode.getChildText("RATE")));
+            	result = (Student)new Student(rootNode.getChildText("ID"), rootNode.getChildText("NAME"), rootNode.getChildText("EMAIL"), rootNode.getChildText("HOME"), rootNode.getChildText("PASS"), amigosDriver, (Double)Double.parseDouble(rootNode.getChildText("RATE")),"all");
             	System.out.println(((Driver)((Student)result).getAmigos().get(0)).getRate());
             }else if(type.equals("driver")) {
             	result = new Driver();

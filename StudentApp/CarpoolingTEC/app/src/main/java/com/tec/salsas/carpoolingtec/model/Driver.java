@@ -75,11 +75,5 @@ public class Driver {
         this.nodoResidencia = nodoResidencia;
     }
 
-    public Double getRate() {
-        return rate;
-    }
 
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
 }

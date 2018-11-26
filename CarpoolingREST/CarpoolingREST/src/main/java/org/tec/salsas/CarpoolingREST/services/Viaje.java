@@ -43,25 +43,35 @@ public class Viaje {
 	public DriverRun empairing(Student student) {
 		// Driver mockup
 		LinkedList<Student> mockPasajeros = new LinkedList<>();
-		DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null,5.0D);
+		//DriverRun mockup1 = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null,5.0D);
+		DriverRun mockup2 = new DriverRun("2018076244","Kevin1","email","1234","10",mockPasajeros,null,5.0D);
 		
-		NodoMapa origen = new NodoMapa(Integer.parseInt(mockup.getNodoResidencia()),false,false,0);
+		//NodoMapa origen1 = new NodoMapa(Integer.parseInt(mockup1.getNodoResidencia()),false,false,0);
+		NodoMapa origen2 = new NodoMapa(Integer.parseInt(mockup2.getNodoResidencia()),false,false,0);
+		
 		NodoMapa medio1 = new NodoMapa(8, true, false, 1);
 		NodoMapa medio2 = new NodoMapa(9, true, false, 2);
 		NodoMapa medio3 = new NodoMapa(12, true, false, 3);
 		NodoMapa destino = new NodoMapa(1,false,false,4);
 		
-		LinkedList<NodoMapa> destinos = new LinkedList<>();
-		destinos.add(origen);
-		destinos.add(destino);
-		destinos.add(medio1);
+		LinkedList<NodoMapa> destinos1 = new LinkedList<>();
+		//destinos1.add(origen1);
+		destinos1.add(destino);
+		destinos1.add(medio1);
+		LinkedList<NodoMapa> destinos2 = new LinkedList<>();
+		destinos2.add(origen2);
+		destinos2.add(destino);
+		destinos2.add(medio1);
 
-		LinkedList<NodoMapa> mockRuta = GestorMapa.rutaOptima(Mapa.graph, destinos);
+		LinkedList<NodoMapa> mockRuta1 = GestorMapa.rutaOptima(Mapa.graph, destinos1);
+		LinkedList<NodoMapa> mockRuta2 = GestorMapa.rutaOptima(Mapa.graph, destinos2);
 
 		//mockRuta.add("8");
 		
-		mockup.setRuta(mockRuta);
-		colaDriverViajes.add(mockup);
+		//mockup1.setRuta(mockRuta1);
+		//colaDriverViajes.add(mockup1);
+		mockup2.setRuta(mockRuta2);
+		colaDriverViajes.add(mockup2);
 		
 		DriverRun asignado = searchDriver(student);
 		viajesAsignados.put(student.getEmail(), asignado);
@@ -101,15 +111,22 @@ public class Viaje {
 	 * debe tener en sus nodos de ruta el nodo del hogar del pasajero.
 	 * */
 	private DriverRun searchDriver(Student student) {
-		LinkedList<String> pruebaR = new LinkedList<>();
-		pruebaR.add("0");
-		pruebaR.add("2");
-		pruebaR.add("1");
 		for(DriverRun driver:colaDriverViajes){
+			System.out.println(colaDriverViajes.size());
 			for(NodoMapa ubicacion:driver.getRuta()){
-				System.out.println((ubicacion.getiD()));
-				System.out.println(student.getNodoResidencia());
 				if(Integer.toString(ubicacion.getiD()).equals(student.getNodoResidencia().toString())) {
+					
+					if(student.getModo().equals("friends")){
+						for(Driver amigo:student.getAmigos()) {
+							System.out.println(amigo.getName()+" Mio");
+							System.out.println(driver.getName()+" El");
+							if(amigo.getName().equals(driver.getName())){
+								return driver;
+							}
+						}
+						return new DriverRun("none","","","","",new LinkedList<Student>(),new LinkedList<NodoMapa>(),0D);
+					}
+					
 					System.out.println("Returning something");
 					return driver;
 				}

@@ -189,10 +189,122 @@ public class main extends AppCompatActivity
         final Context c = this;
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current.setModo("friends");
+                precurrent.setModo("friends");
+                Snackbar.make(view, "Emparejando amigo", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student";
+                RequestQueue requestQueue = Volley.newRequestQueue(c);
+                final ObjectMapper mapper = new ObjectMapper();
+
+                JsonObjectRequest objectRequest = null;
+                System.out.println(current.getName());
+                try {
+                    objectRequest = new JsonObjectRequest(
+                            Request.Method.PUT,
+                            url,
+                            new JSONObject(mapper.writeValueAsString(current)),
+                            new Response.Listener<JSONObject>() {
+
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    System.out.println(response);
+                                    try {
+                                        HashMap<String, String> result = mapper.readValue(response.toString(), HashMap.class);
+                                        if (result.get("result").toString().equals("encolado")) {
+                                            fab.setEnabled(false);
+                                            Thread thread = new Thread() {
+                                                @Override
+                                                public void run() {
+                                                    final LinkedList<Boolean> repeat = new LinkedList<>();
+                                                    repeat.add(true);
+                                                    while (repeat.getFirst()) {
+                                                        String url1 = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student";
+                                                        RequestQueue requestQueue = Volley.newRequestQueue(c);
+                                                        final ObjectMapper mapper = new ObjectMapper();
+
+                                                        JsonObjectRequest objectRequest = null;
+                                                        System.out.println(current.getName());
+                                                        try {
+                                                            objectRequest = new JsonObjectRequest(
+                                                                    Request.Method.POST,
+                                                                    url1,
+                                                                    new JSONObject(mapper.writeValueAsString(precurrent)),
+                                                                    new Response.Listener<JSONObject>() {
+
+                                                                        @Override
+                                                                        public void onResponse(JSONObject response) {
+                                                                            try {
+                                                                                HashMap<String, String> result = (HashMap<String, String>) mapper.readValue(response.toString(), HashMap.class);
+                                                                                System.out.println(result.toString());
+                                                                                if (!result.get("carne").equals("none")) {
+                                                                                    repeat.removeFirst();
+                                                                                    repeat.add(false);
+                                                                                    current.setMyDriver(result.get("mail"));
+                                                                                    System.out.println(result.get("nodoResidencia"));
+                                                                                    generar_carro(Integer.parseInt(result.get("nodoResidencia")));
+                                                                                    getRuta();
+                                                                                }
+                                                                            } catch (IOException e) {
+                                                                                e.printStackTrace();
+                                                                            }
+                                                                        }
+                                                                    }, new Response.ErrorListener() {
+                                                                @Override
+                                                                public void onErrorResponse(VolleyError error) {
+                                                                    System.out.println(error.toString());
+                                                                }
+                                                            }
+                                                            );
+                                                        } catch (JSONException e) {
+                                                            e.printStackTrace();
+                                                        } catch (IOException e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                        requestQueue.add(objectRequest);
+                                                        try {
+                                                            Thread.sleep(500);
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                    }
+                                                }
+                                            };
+                                            thread.start();
+                                        }
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            System.out.println(error.toString());
+                        }
+                    }
+                    );
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                requestQueue.add(objectRequest);
+
+            }
+        });
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Conductor emparejado!", Snackbar.LENGTH_LONG)
+                current.setModo("all");
+                precurrent.setModo("friends");
+                Snackbar.make(view, "Emparejando conductor", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
                 String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student";
