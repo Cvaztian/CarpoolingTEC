@@ -19,10 +19,19 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Manipulador de base de datos
+ * */
 public class Database {
 	
 	private static String databaseLocation = "./Documentos/DatosI/Proyectos/3/CarpoolingTEC/CarpoolingREST/CarpoolingREST/src/database";
 	
+	/**
+	 * Fiuncion que chequea el login
+	 * @param type tipo de base
+	 * @param email email a buscar
+	 * @param pass contrasenna a buscar
+	 * */
 	public static Object checkLogin(String type, String email, String pass) throws Exception {
 		if(type == "student") {
 			File userFile = findFile(type, email);

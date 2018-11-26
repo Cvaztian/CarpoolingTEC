@@ -10,6 +10,9 @@ import org.tec.salsas.CarpoolingREST.Processing.Mapa;
 @Path("/setup")
 public class setUp {
 	
+	/**
+	 * setup del server
+	 * */
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
