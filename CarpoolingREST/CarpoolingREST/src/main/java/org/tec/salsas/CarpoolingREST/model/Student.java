@@ -1,5 +1,7 @@
 package org.tec.salsas.CarpoolingREST.model;
 
+import java.util.LinkedList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -14,20 +16,45 @@ public class Student {
 	private String email;
 	private String pass;
 	private String nodoResidencia;
+	private Double rate;
+	private LinkedList<Driver> amigos;
 	
 	public Student() {
 		
 	}
 	
 
-	public Student(String carne, String name, String email, String nodoResidencia, String pass) {
+	public Student(String carne, String name, String email, String nodoResidencia, String pass, LinkedList<Driver> amigos, Double rate) {
 		// TODO Auto-generated constructor stub
 		this.carne = carne;
 		this.name = name;
 		this.email = email;
 		this.nodoResidencia = nodoResidencia;
 		this.pass = pass;
+		this.amigos = amigos;
+		this.rate = rate;
 	}
+	
+
+	public Double getRate() {
+		return rate;
+	}
+
+
+	public void setRate(Double rate) {
+		this.rate = rate;
+	}
+
+
+	public LinkedList<Driver> getAmigos() {
+		return amigos;
+	}
+	
+
+	public void setAmigos(LinkedList<Driver> amigos) {
+		this.amigos = amigos;
+	}
+
 
 	public String getCarne() {
 		return carne;

@@ -10,13 +10,13 @@ public class StudentRun extends Student {
 
     }
 
-    public StudentRun(String carne, String name, String email, String nodoResidencia, String pass, String myDriver, LinkedList<Driver>amigos, Double rate) {
-        super(carne, name, email, nodoResidencia, pass, amigos, rate);
+    public StudentRun(String carne, String name, String email, String nodoResidencia, String pass, String myDriver, LinkedList<Driver> frens, Double rate) {
+        super(carne, name, email, nodoResidencia, pass, frens, rate);
         this.myDriver = myDriver;
     }
 
     public StudentRun(Student student, String myDriver){
-        super(student.getCarne(), student.getName(), student.getEmail(), student.getNodoResidencia(), student.getPass(),student.getAmigos(), student.getRate());
+        super(student.getCarne(), student.getName(), student.getEmail(), student.getNodoResidencia(), student.getPass(), student.getAmigos(), student.getRate());
         this.myDriver = myDriver;
     }
 
@@ -26,6 +26,8 @@ public class StudentRun extends Student {
         setCarne(student.getCarne());
         setNodoResidencia(student.getNodoResidencia());
         setPass(student.getPass());
+        setAmigos(student.getAmigos());
+        setRate(student.getRate());
     }
 
     public String getMyDriver() {

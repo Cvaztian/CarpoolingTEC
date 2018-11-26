@@ -19,7 +19,9 @@ public class DriverRun extends Driver {
     private ArrayList<Student> pasajeros;
     private ArrayList<String> ruta;
 
+    public DriverRun(){
 
+    }
 
 
 

@@ -12,7 +12,7 @@ public class Driver {
     private String email;
     private String pass;
     private String nodoResidencia;
-    private double rate;
+    private Double rate;
 
     public Driver(){
 
@@ -73,5 +73,13 @@ public class Driver {
 
     public void setNodoResidencia(String nodoResidencia) {
         this.nodoResidencia = nodoResidencia;
+    }
+
+    public Double getRate() {
+        return rate;
+    }
+
+    public void setRate(Double rate) {
+        this.rate = rate;
     }
 }

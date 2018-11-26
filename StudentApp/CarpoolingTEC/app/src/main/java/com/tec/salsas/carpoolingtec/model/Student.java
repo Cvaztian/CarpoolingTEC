@@ -14,8 +14,8 @@ public class Student {
     private String email;
     private String pass;
     private String nodoResidencia;
-    private LinkedList<Driver> amigos;
     private Double rate;
+    private LinkedList<Driver> amigos;
 
 
     public Student() {
@@ -23,23 +23,15 @@ public class Student {
     }
 
 
-    public Student(String carne, String name, String email, String nodoResidencia, String pass, LinkedList<Driver>amigos, Double rate) {
+    public Student(String carne, String name, String email, String nodoResidencia, String pass, LinkedList<Driver> amigos, Double rate) {
 
         this.carne = carne;
         this.name = name;
         this.email = email;
         this.nodoResidencia = nodoResidencia;
         this.pass = pass;
+        this.amigos = amigos;
         this.rate = rate;
-        this.amigos = amigos;
-    }
-
-    public LinkedList<Driver> getAmigos() {
-        return amigos;
-    }
-
-    public void setAmigos(LinkedList<Driver> amigos) {
-        this.amigos = amigos;
     }
 
     public Double getRate() {
@@ -48,6 +40,14 @@ public class Student {
 
     public void setRate(Double rate) {
         this.rate = rate;
+    }
+
+    public LinkedList<Driver> getAmigos() {
+        return amigos;
+    }
+
+    public void setAmigos(LinkedList<Driver> amigos) {
+        this.amigos = amigos;
     }
 
     public String getCarne() {
