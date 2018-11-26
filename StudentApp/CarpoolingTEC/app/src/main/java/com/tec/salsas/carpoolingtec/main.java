@@ -81,6 +81,7 @@ public class main extends AppCompatActivity
     Boolean clickable;
     int ETA;
     RelativeLayout marco;
+    TextView puntaje;
 
     final Context c = this;
 
@@ -96,6 +97,7 @@ public class main extends AppCompatActivity
         String message = intent.getStringExtra("user");
         try {
             precurrent = mapper.readValue(message, Student.class);
+            System.out.println(precurrent.getRate());
             current.setStudent(precurrent);
             current.setMyDriver(null);
         } catch (IOException e) {
@@ -107,10 +109,12 @@ public class main extends AppCompatActivity
         View header = navigationView.getHeaderView(0);
         TextView nameT = (TextView) header.findViewById(R.id.nameTextView);
         TextView emailT = (TextView) header.findViewById(R.id.mailTextView);
+        TextView puntaje = (TextView) header.findViewById(R.id.puntaje);
         marco = findViewById(R.id.marco);
 
         nameT.setText(current.getName());
         emailT.setText(current.getEmail());
+        puntaje.setText(current.getRate().toString());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -185,7 +189,7 @@ public class main extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Conductor emparejado!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
                 String url = "http://192.168.100.76:8080/CarpoolingREST/webapi/trip/student";
@@ -288,7 +292,7 @@ public class main extends AppCompatActivity
             }
         });
 
-        conversion_nodo_actual(Integer.parseInt(current.getNodoResidencia()));
+        conversion_nodo_actual(Integer.parseInt(current.getNodoResidencia().toString()));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -353,12 +357,17 @@ public class main extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        ObjectMapper mapper = new ObjectMapper();
 
         if (id == R.id.nav_camera) {
             System.out.println("Cammera pressed");
             Intent i = new Intent(this, friendPage.class);
+            try {
+                i.putExtra("data", mapper.writeValueAsString(precurrent));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             startActivity(i);
-            // Handle the camera action
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -43,7 +43,7 @@ public class Viaje {
 	public DriverRun empairing(Student student) {
 		// Driver mockup
 		LinkedList<Student> mockPasajeros = new LinkedList<>();
-		DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null);
+		DriverRun mockup = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null,5.0D);
 		
 		NodoMapa origen = new NodoMapa(Integer.parseInt(mockup.getNodoResidencia()),false,false,0);
 		NodoMapa medio1 = new NodoMapa(8, true, false, 1);
@@ -55,10 +55,11 @@ public class Viaje {
 		destinos.add(origen);
 		destinos.add(destino);
 		destinos.add(medio1);
-		
+
 		LinkedList<NodoMapa> mockRuta = GestorMapa.rutaOptima(Mapa.graph, destinos);
-		
+
 		//mockRuta.add("8");
+		
 		mockup.setRuta(mockRuta);
 		colaDriverViajes.add(mockup);
 		
@@ -114,7 +115,7 @@ public class Viaje {
 				}
 			}
 		}
-		return new DriverRun("none","","","","",new LinkedList<Student>(),new LinkedList<NodoMapa>());
+		return new DriverRun("none","","","","",new LinkedList<Student>(),new LinkedList<NodoMapa>(),0D);
 	}
 	
 }

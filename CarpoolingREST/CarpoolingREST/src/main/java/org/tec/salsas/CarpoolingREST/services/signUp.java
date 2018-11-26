@@ -46,6 +46,8 @@ public class signUp {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public HashMap<String,String> register(Student newStudent) throws Exception {
+		System.out.println(newStudent.toString());
+		newStudent.setRate(5.0);
 		Database.WriteXML("student", newStudent);
 		HashMap<String,String> result = new HashMap<>();
 		result.put("result","true");

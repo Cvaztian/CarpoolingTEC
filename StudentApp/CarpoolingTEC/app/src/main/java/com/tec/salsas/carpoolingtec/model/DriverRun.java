@@ -19,16 +19,8 @@ public class DriverRun extends Driver {
     private ArrayList<Student> pasajeros;
     private ArrayList<String> ruta;
 
-    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, ArrayList<Student> pasajeros, ArrayList<String> ruta) {
-        super(carne, name, email, pass, nodoResidencia);
-        this.pasajeros = pasajeros;
-        this.ruta = ruta;
-    }
+    public DriverRun(){
 
-    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, String pasajeros, String ruta) {
-        super(carne, name, email, pass, nodoResidencia);
-        System.out.println(pasajeros);
-        System.out.println(ruta);
     }
 
 
