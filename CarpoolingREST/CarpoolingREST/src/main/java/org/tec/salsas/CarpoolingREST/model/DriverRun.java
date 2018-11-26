@@ -13,8 +13,8 @@ public class DriverRun extends Driver {
     private LinkedList<Student> pasajeros;
     private LinkedList<NodoMapa> ruta;
 
-    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, LinkedList<Student> pasajeros, LinkedList<NodoMapa> ruta) {
-        super(carne, name, email, pass, nodoResidencia);
+    public DriverRun(String carne, String name, String email, String pass, String nodoResidencia, LinkedList<Student> pasajeros, LinkedList<NodoMapa> ruta, Double rate) {
+        super(carne, name, email, pass, nodoResidencia, rate);
         this.pasajeros = pasajeros;
         this.ruta = ruta;
     }

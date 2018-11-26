@@ -37,7 +37,7 @@ public class friendPage extends AppCompatActivity {
             TextView name = new TextView(this);
             //name.setTextColor(c6c9ce);
             name.setTextSize(30);
-            name.setText(amigo.getName());
+            name.setText(amigo.getName()+"\t"+"   "+amigo.getRate()+"/10.0");
             mainScroll.addView(name, 0);
         }
 

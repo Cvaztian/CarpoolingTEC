@@ -132,8 +132,8 @@ public class Database {
 	            e2.setText(amigo.getName());
 	            ae1.addContent(e2);
 
-	            Element e3 = new Element("EMAIL");
-	            e3.setText(amigo.getEmail());
+	            Element e3 = new Element("RATE");
+	            e3.setText(amigo.getRate().toString());
 	            ae1.addContent(e3);
 
 	            List l = new ArrayList();
@@ -181,11 +181,11 @@ public class Database {
             		Driver friendDriver = new Driver();
             		Element friend = (Element)node.getChildren("FRIEND").get(i);
             		friendDriver.setName(friend.getChildText("NAME"));
-            		friendDriver.setEmail(friend.getChildText("EMAIL"));
+            		friendDriver.setRate(Double.parseDouble(friend.getChildText("RATE")));
             		amigosDriver.add(friendDriver);
             	}
             	result = (Student)new Student(rootNode.getChildText("ID"), rootNode.getChildText("NAME"), rootNode.getChildText("EMAIL"), rootNode.getChildText("HOME"), rootNode.getChildText("PASS"), amigosDriver, (Double)Double.parseDouble(rootNode.getChildText("RATE")));
-            	System.out.println((((Student) result).getRate()).toString());
+            	System.out.println(((Driver)((Student)result).getAmigos().get(0)).getRate());
             }else if(type.equals("driver")) {
             	result = new Driver();
             }else {

@@ -4,19 +4,19 @@
     <SIZE>4</SIZE>
     <FRIEND>
       <NAME>Kevin1</NAME>
-      <EMAIL>prueba</EMAIL>
+      <RATE>5.0</RATE>
     </FRIEND>
     <FRIEND>
       <NAME>Kevin2</NAME>
-      <EMAIL>prueba</EMAIL>
+      <RATE>3.8</RATE>
     </FRIEND>
     <FRIEND>
       <NAME>Kevin3</NAME>
-      <EMAIL>prueba</EMAIL>
+      <RATE>4.0</RATE>
     </FRIEND>
     <FRIEND>
       <NAME>Kevin4</NAME>
-      <EMAIL>prueba</EMAIL>
+      <RATE>4.5</RATE>
     </FRIEND>
   </FRIENDS>
   <NAME>Kevin</NAME>
