@@ -283,8 +283,7 @@ public class MainActivity extends AppCompatActivity {
                                     int duration = Toast.LENGTH_SHORT;
                                     Toast toast = Toast.makeText(context, text, duration);
                                     toast.show();
-                                }
-                                else{
+                                }else{
                                     Intent intent = new Intent(c, main.class);
 
                                     intent.putExtra("user", response.toString());
