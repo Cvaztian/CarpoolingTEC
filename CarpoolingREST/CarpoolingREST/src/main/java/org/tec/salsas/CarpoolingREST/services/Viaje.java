@@ -18,6 +18,11 @@ import org.tec.salsas.CarpoolingREST.model.Driver;
 import org.tec.salsas.CarpoolingREST.model.DriverRun;
 import org.tec.salsas.CarpoolingREST.model.Student;
 
+
+/**
+ * Clase encargada de la solicitud de los viajes
+ * @author Kevin Zeledon
+ * */
 @Path("/trip")
 public class Viaje {
 	
@@ -25,6 +30,11 @@ public class Viaje {
 	private static LinkedList<DriverRun> colaDriverViajes = new LinkedList<>();
 	private static HashMap<String, DriverRun> viajesAsignados = new HashMap<>();
 	
+	/**
+	 * Encola a un estudiante
+	 * @param student Estudiante a encolar
+	 * @return Hasmap con una variable true para que el cliente reciba un success
+	 * */
 	@PUT
 	@Path("/student")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -35,7 +45,14 @@ public class Viaje {
 		result.put("result", "encolado");
 		return result;
 	}
+	public static DriverRun mockup1 = new DriverRun("2018076244","Kevin1","kevin@zeledon.com","1234","10",null,null,5.0D);;
+	public static DriverRun mockup2 = new DriverRun("2018076244","Kevin1","kevin@zeledon.com","1234","10",null,null,5.0D);;
 	
+	/**
+	 * Funcion encargada del emparejamiento driver-student
+	 * @param student Estudiante a emparejar
+	 * @return 
+	 * */
 	@POST
 	@Path("/student")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -43,10 +60,10 @@ public class Viaje {
 	public DriverRun empairing(Student student) {
 		// Driver mockup
 		LinkedList<Student> mockPasajeros = new LinkedList<>();
-		//DriverRun mockup1 = new DriverRun("2018076244","Pablo","email","1234","4",mockPasajeros,null,5.0D);
-		DriverRun mockup2 = new DriverRun("2018076244","Kevin1","email","1234","10",mockPasajeros,null,5.0D);
+		//DriverRun mockup1 = new DriverRun("2018076244","Pablo","pablo@escobar.com","1234","4",mockPasajeros,null,5.0D);
+		//mockup2 = new DriverRun("2018076244","Kevin1","kevin@zeledon.com","1234","10",mockPasajeros,null,5.0D);
 		
-		//NodoMapa origen1 = new NodoMapa(Integer.parseInt(mockup1.getNodoResidencia()),false,false,0);
+		NodoMapa origen1 = new NodoMapa(Integer.parseInt(mockup1.getNodoResidencia()),false,false,0);
 		NodoMapa origen2 = new NodoMapa(Integer.parseInt(mockup2.getNodoResidencia()),false,false,0);
 		
 		NodoMapa medio1 = new NodoMapa(8, true, false, 1);
@@ -55,7 +72,7 @@ public class Viaje {
 		NodoMapa destino = new NodoMapa(1,false,false,4);
 		
 		LinkedList<NodoMapa> destinos1 = new LinkedList<>();
-		//destinos1.add(origen1);
+		destinos1.add(origen1);
 		destinos1.add(destino);
 		destinos1.add(medio1);
 		LinkedList<NodoMapa> destinos2 = new LinkedList<>();
@@ -66,9 +83,8 @@ public class Viaje {
 		LinkedList<NodoMapa> mockRuta1 = GestorMapa.rutaOptima(Mapa.graph, destinos1);
 		LinkedList<NodoMapa> mockRuta2 = GestorMapa.rutaOptima(Mapa.graph, destinos2);
 
-		//mockRuta.add("8");
 		
-		//mockup1.setRuta(mockRuta1);
+		mockup1.setRuta(mockRuta1);
 		//colaDriverViajes.add(mockup1);
 		mockup2.setRuta(mockRuta2);
 		colaDriverViajes.add(mockup2);
@@ -94,6 +110,32 @@ public class Viaje {
 		}
 		
 	}
+	
+	
+	
+	@PUT
+	@Path("/rateDriver")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public HashMap<String, String> rateDriver(HashMap<String,String> prueba) {
+		System.out.println("Hola");
+		String mail = prueba.get("mail");
+		Double new_rate = Double.parseDouble(prueba.get("rate"));
+		if(mail.toString().equals("\"pablo@escobar.com\"")) {
+			Viaje.mockup1.setRate((Viaje.mockup1.getRate()+new_rate)/2);
+			System.out.println("La nueva calificacion de "+mockup1.getName()+" es: "+mockup1.getRate());
+		}else if(mail.toString().equals("\"kevin@zeledon.com\"")) {
+			Viaje.mockup2.setRate((Viaje.mockup2.getRate()+new_rate)/2);
+			System.out.println("La nueva calificacion de "+mockup2.getName()+" es: "+mockup2.getRate());
+		}else {
+			System.out.print(mail);
+		}
+		HashMap<String, String> result = new HashMap<>();
+		result.put("result", "true");
+		return result;
+	}
+	
+	
 	
 	@GET
 	@Path("/student/verify")

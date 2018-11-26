@@ -246,7 +246,7 @@ public class main extends AppCompatActivity
                                                                                 if (!result.get("carne").equals("none")) {
                                                                                     repeat.removeFirst();
                                                                                     repeat.add(false);
-                                                                                    current.setMyDriver(result.get("mail"));
+                                                                                    current.setMyDriver(result.get("email"));
                                                                                     System.out.println(result.get("nodoResidencia"));
                                                                                     generar_carro(Integer.parseInt(result.get("nodoResidencia")));
                                                                                     getRuta();
@@ -354,7 +354,7 @@ public class main extends AppCompatActivity
                                                                                 if (!result.get("carne").equals("none")) {
                                                                                     repeat.removeFirst();
                                                                                     repeat.add(false);
-                                                                                    current.setMyDriver(result.get("mail"));
+                                                                                    current.setMyDriver(result.get("email"));
                                                                                     System.out.println(result.get("nodoResidencia"));
                                                                                     generar_carro(Integer.parseInt(result.get("nodoResidencia")));
                                                                                     getRuta();
@@ -639,8 +639,14 @@ public class main extends AppCompatActivity
             }
 
             public void onFinish() {
+                ObjectMapper mapper = new ObjectMapper();
                 displayer.setText("Viaje finalizado");
                 Intent intent = new Intent(c, Rating.class);
+                try {
+                    intent.putExtra("driver", mapper.writeValueAsString(current.getMyDriver()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 startActivity(intent);
                 main.super.finish();
             }

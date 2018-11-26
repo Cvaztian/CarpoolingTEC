@@ -37,6 +37,8 @@ public class login {
 	
 	/**
 	 * Chequea que los datos de inicio de sesion esten bien.
+	 * @param dataList_raw Hashmap de email y contrasenna
+	 * @return Estudiante.
 	 * */
 	@PUT
 	@Path("/student")
